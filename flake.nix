@@ -5,7 +5,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    wrappers.url = "github:lassulus/wrappers";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -20,7 +19,6 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
-
 
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";

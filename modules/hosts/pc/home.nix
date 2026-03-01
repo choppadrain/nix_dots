@@ -1,5 +1,5 @@
 {self, inputs, ...}:{
-  flake.homeConfiguration.choppadrain = home-manager.lib.homeManagerConfiguration {
+  flake.homeConfiguration.choppadrain = inputs.home-manager.lib.homeManagerConfiguration {
     modules = [
 	self.homeModules.choppadrainModule
     ];

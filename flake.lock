@@ -630,22 +630,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1764667669,
-        "narHash": "sha256-7WUCZfmqLAssbDqwg9cUDAXrSoXN79eEEq17qhTNM/Y=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "418468ac9527e799809c900eda37cbff999199b6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "ny": {
       "flake": false,
       "locked": {
@@ -716,7 +700,6 @@
         "otter-launcher": "otter-launcher",
         "scroll-flake": "scroll-flake",
         "wrapper-modules": "wrapper-modules",
-        "wrappers": "wrappers",
         "zen-browser": "zen-browser"
       }
     },
@@ -919,24 +902,6 @@
       "original": {
         "owner": "BirdeeHub",
         "repo": "nix-wrapper-modules",
-        "type": "github"
-      }
-    },
-    "wrappers": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1770890346,
-        "narHash": "sha256-tbkDOqEWyg/f9EH/Uc/N4BnmjeE5cWM7o2FmyrjjdHg=",
-        "owner": "lassulus",
-        "repo": "wrappers",
-        "rev": "5822a46c5690911ccabe9b8d95786d29e9320a49",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lassulus",
-        "repo": "wrappers",
         "type": "github"
       }
     },

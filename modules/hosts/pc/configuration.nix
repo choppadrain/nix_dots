@@ -66,7 +66,6 @@
     mesa
     gcc
     cargo
-    self.packages.${system}.neovim
   ];
     nix.settings.experimental-features = [
 	"nix-command"
