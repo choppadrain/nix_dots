@@ -1,11 +1,4 @@
-{self, inputs, ...}:{
-  flake.homeConfiguration.choppadrain = inputs.home-manager.lib.homeManagerConfiguration {
-    modules = [
-	self.homeModules.choppadrainModule
-    ];
-
-
-  };
+{
   flake.homeModules.choppadrainModule =
     {
       pkgs,
@@ -41,6 +34,5 @@
         VISUAL = "nvim";
       };
 
-      programs.home-manager.enable = true;
     };
 }

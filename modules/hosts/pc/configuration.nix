@@ -2,77 +2,115 @@
 {
   inputs,
   self,
+  lib,
   ...
-}: {
-    flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-	modules = [
-	self.nixosModules.nixosModule
-	self.nixosModules.desktop
-	self.nixosModules.amdgpu
-	self.nixosModules.base
-	self.nixosModules.home-manager
-	];
+}:
+{
+  flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules =
+      with self.nixosModules;
+      [
+        nixosModule
+        desktop
+        amdgpu
+        base
+      ]
+      ++ [
+        {
+          home-manager.users.choppadrain = {
+            imports = with self.homeModules; [
+              hyprland
+            ];
+
+            home.stateVersion = "25.05";
+            programs.waybar.enable = true;
+            home.sessionVariables = {
+              EDITOR = "nvim";
+              VISUAL = "nvim";
+            };
+
+            home.username = "choppadrain";
+            home.homeDirectory = lib.mkDefault "/home/choppadrain";
+          };
+        }
+      ];
+
   };
-   flake.nixosModules.nixosModule = { pkgs, ... }: {
-  programs.git.enable = true;
-  imports = [
-  	];
+  flake.nixosModules.nixosModule =
+    { pkgs, ... }:
+    {
+      imports = [ inputs.home-manager.nixosModules.home-manager ];
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        backupFileExtension = "backup";
+        overwriteBackup = true;
+      };
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    SDL_VIDEODRIVER = "wayland";
-    XDG_SESSION_TYPE = "wayland";
-  };
+      programs.git.enable = true;
 
-  environment.variables = {
-  EDITOR = "nvim";
-  VISUAL = "nvim";
-};
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        SDL_VIDEODRIVER = "wayland";
+        XDG_SESSION_TYPE = "wayland";
+      };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      environment.variables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
 
-  networking.hostName = "nixos"; # Define your hostname.
+      xdg.portal.enable = true;
+      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  networking.networkmanager.enable = true;
+      networking.hostName = "nixos"; # Define your hostname.
 
-  time.timeZone = "Europe/Chisinau";
+      networking.networkmanager.enable = true;
 
-  i18n.defaultLocale = "en_US.UTF-8";
+      time.timeZone = "Europe/Chisinau";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+      i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = with pkgs; [
-    vim
-    waybar
-    libnotify
-    firefox
-    fastfetch
-    swaynotificationcenter
-    wl-clipboard
-    grim
-    slurp
-    os-prober
-    telegram-desktop
-    vesktop
-    ntfs3g
-    kdePackages.qt6ct
-    kdePackages.dolphin
-    libgbm
-    fnm
-    libreoffice
-    hyprpolkitagent
-    mesa
-    gcc
-    cargo
-  ];
-    nix.settings.experimental-features = [
-	"nix-command"
-	"flakes"
-    ];
+      # Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
 
+      environment.systemPackages = with pkgs; [
+        vim
+        waybar
+        libnotify
+        firefox
+        fastfetch
+        swaynotificationcenter
+        wl-clipboard
+        grim
+        slurp
+        os-prober
+        telegram-desktop
+        vesktop
+        ntfs3g
+        kdePackages.qt6ct
+        kdePackages.dolphin
+        libgbm
+        fnm
+        libreoffice
+        hyprpolkitagent
+        mesa
+        gcc
+        cargo
+      ];
+      nix = {
+        package = pkgs.nix;
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+        settings = {
+          substituters = [ "https://hyprland.cachix.org" ];
+          trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+          experimental-features = [
+            "flakes"
+            "nix-command"
+          ];
+        };
+      };
+      system.stateVersion = "25.05"; # Did you read the comment?
     };
 }

@@ -1,8 +1,6 @@
 {
   flake.homeModules.hyprland =
     {
-      lib,
-      config,
       pkgs,
       ...
     }:
