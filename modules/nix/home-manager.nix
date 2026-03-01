@@ -22,6 +22,7 @@ in
       inputs.home-manager.nixosModules.home-manager
       home-manager-config
     ];
+    programs.home-manager.enable = true;
   };
 
 }
