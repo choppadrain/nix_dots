@@ -21,7 +21,6 @@ in
       inputs.home-manager.flakeModules.home-manager
       home-manager-config
     ];
-    programs.home-manager.enable = true;
   };
 
 }
