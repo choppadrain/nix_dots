@@ -1,10 +1,10 @@
-{self, ...}: {
+{ self, ... }:
+{
   flake.nixosModules.hyprland = {
-  	home-manager.sharedModules = [
-		self.homeModules.hyprland
-	];
+    home-manager.sharedModules = [
+      self.homeModules.hyprland
+    ];
   };
-
 
   flake.homeModules.hyprland =
     {
@@ -15,8 +15,8 @@
       home.packages = with pkgs; [
         bibata-cursors
         wofi
-	swww
-	swaynotificationcenter
+        swww
+        swaynotificationcenter
 
       ];
       wayland.windowManager.hyprland = {

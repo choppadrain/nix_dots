@@ -16,10 +16,10 @@
         homeManager
         nixosModule
         amdgpu
-	hyprland
-	waybar
+        hyprland
+        waybar
         base
-	themeSwitcher
+        themeSwitcher
       ]
       ++ [
         {
