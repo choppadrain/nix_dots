@@ -1,26 +1,21 @@
 {
   inputs,
+  pkgs,
   ...
 }:
-let
-  home-manager-config =
-    { lib, ... }:
-    {
-      home-manager = {
-        verbose = true;
-        useUserPackages = true;
-        useGlobalPkgs = true;
-        backupFileExtension = "backup";
-        overwriteBackup = true;
-      };
-    };
-in
 {
-  flake.nixosModules.home-manager = {
+  flake.nixosModules.homeManager = {
     imports = [
-      inputs.home-manager.flakeModules.home-manager
-      home-manager-config
+      inputs.home-manager.nixosModules.home-manager
+
     ];
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      backupFileExtension = "backup";
+      overwriteBackup = true;
+    };
+
   };
 
 }
