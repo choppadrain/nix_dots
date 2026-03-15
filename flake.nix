@@ -10,7 +10,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,8 +25,8 @@
     };
 
     apple-emoji = {
-	url = "github:samuelngs/apple-emoji-ttf";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:samuelngs/apple-emoji-ttf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     scroll-flake = {
@@ -45,5 +44,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-    outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
