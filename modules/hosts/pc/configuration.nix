@@ -12,6 +12,7 @@
       with self.nixosModules;
       [
         choppadrain
+        zenBrowser
         nushell
         homeManager
         nixosModule
@@ -20,13 +21,19 @@
         waybar
         base
         themeSwitcher
+	utils
+ 	yazi
+	kitty
       ]
       ++ [
         {
           home-manager.users.choppadrain = {
             imports = with self.homeModules; [
             ];
-
+	    home.packages = with pkgs; [
+	    	vesktop
+		telegram-desktop
+	    ];
             home.stateVersion = "25.05";
             home.sessionVariables = {
               EDITOR = "nvim";
@@ -69,6 +76,9 @@
         mesa
         cargo
         home-manager
+        neovim
+	kitty
+	nano
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

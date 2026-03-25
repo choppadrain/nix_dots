@@ -1,14 +1,14 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
-  flake.nixosModules.zen-browser = {
+  flake.nixosModules.zenBrowser = {
     home-manager.sharedModules = [
-      self.homeModules.zen-browser
+      inputs.zen-browser.homeModules.twilight
+      self.homeModules.zenBrowser
     ];
   };
-  flake.homeModules.zen-browser =
+  flake.homeModules.zenBrowser =
     { inputs, pkgs, ... }:
     {
-      imports = [ inputs.zen-browser.homeModules.twilight ];
       programs.zen-browser = {
         enable = true;
         nativeMessagingHosts = [ pkgs.firefoxpwa ];

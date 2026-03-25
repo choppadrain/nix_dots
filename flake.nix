@@ -19,6 +19,11 @@
       url = "github:hyprwm/Hyprland";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,11 +31,6 @@
 
     apple-emoji = {
       url = "github:samuelngs/apple-emoji-ttf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    scroll-flake = {
-      url = "github:AsahiRocks/scroll-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
