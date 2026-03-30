@@ -16,13 +16,9 @@
 
         			$env.config = ($env.config | upsert show_banner false)
 
-                		}
+                		
 
         		'';
-      shellAliases = {
-        yazi = "yz";
-        clear = "c";
-      };
     };
   };
 }

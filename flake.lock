@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "apple-emoji": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "ttc": "ttc"
-      },
-      "locked": {
-        "lastModified": 1772747337,
-        "narHash": "sha256-WY4Yc/8V+eVyVgoCHEaQyW6EitHnB3dc1F2hW/N95Fo=",
-        "owner": "samuelngs",
-        "repo": "apple-emoji-ttf",
-        "rev": "c7fdcac57946f5a34256b7d267acc5c1cde444c7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "samuelngs",
-        "repo": "apple-emoji-ttf",
-        "type": "github"
-      }
-    },
     "apple-fonts": {
       "inputs": {
         "nixpkgs": [
@@ -764,7 +743,6 @@
     },
     "root": {
       "inputs": {
-        "apple-emoji": "apple-emoji",
         "apple-fonts": "apple-fonts",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
@@ -890,20 +868,6 @@
         "repo": "default-linux",
         "type": "github"
       }
-    },
-    "ttc": {
-      "flake": false,
-      "locked": {
-        "path": "path:./Apple Color Emoji.ttc",
-        "type": "path"
-      },
-      "original": {
-        "path": "path:./Apple Color Emoji.ttc",
-        "type": "path"
-      },
-      "parent": [
-        "apple-emoji"
-      ]
     },
     "wrapper-modules": {
       "inputs": {

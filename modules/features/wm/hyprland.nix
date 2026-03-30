@@ -17,6 +17,9 @@
         wofi
         swww
         swaynotificationcenter
+	xdg-desktop-portal-gtk
+	xdg-desktop-portal
+	xdg-desktop-portal-wlr
 
       ];
       wayland.windowManager.hyprland = {

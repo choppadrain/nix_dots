@@ -1,7 +1,9 @@
-{
+
+{self,inputs,...}:{
+flake.nixosModules.fonts = {
   pkgs,
   lib,
-  inputs,
+  # inputs,
   ...
 }:
 {
@@ -9,32 +11,37 @@
     fontDir.enable = true;
     enableDefaultPackages = true;
     packages =
-      with pkgs;
-      (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts))
-      ++ [
-        inputs.apple-fonts.packages.${system}.sf-mono-nerd
-        inputs.apple-fonts.packages.${system}.sf-pro-nerd
-      ];
+      [
+        inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd
+        inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+	inputs.apple-fonts.packages.${pkgs.system}.ny-nerd
+	# inputs.apple-emoji.packages.${pkgs.system}.apple-emoji-ttf
+       ];
     fontconfig = {
-      defaultFonts = {
-        serif = [
-          "SFRounded Nerd Font Medium"
-          "SFProText Font Medium"
-          "JetBrainsMono Nerd Font"
-        ];
-        sansSerif = [
-          "SFProText Nerd Font Medium"
-          "SFProText Font Medium"
-          "JetBrainsMono Nerd Font"
-        ];
-        monospace = [
-          "SFMono Nerd Font SemiBold"
-          "JetBrainsMono Nerd Font"
-        ];
-        emoji = [ "Apple Color Emoji" ];
+	  defaultFonts = {
+  serif = [
+    "New York Medium"
+    "SFPro Display Medium"
+    "SFPro Text Medium"
+    "SFRounded Medium"
+    "JetBrainsMono Nerd Font"
+  ];
+  sansSerif = [
+    "SFPro Display Medium"
+    "SFPro Text Medium"
+    "SFRounded Medium"
+    "JetBrainsMono Nerd Font"
+  ];
+  monospace = [
+    "SFMono SemiBold nerd"
+    "JetBrainsMono Nerd Font"
+  ];
+  emoji = [
+    "Apple Color Emoji"
+  ];
       };
       localConf = ''
-             <?xml version='1.0'?>
+<?xml version='1.0'?>
              <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
              <fontconfig>
                <alias>
@@ -94,7 +101,9 @@
                  <edit name="lcdfilter" mode="assign"><const>lcdnone</const></edit>
                </match>
              </fontconfig>
+
       '';
     };
   };
+ };
 }

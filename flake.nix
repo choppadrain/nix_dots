@@ -29,10 +29,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    apple-emoji = {
-      url = "github:samuelngs/apple-emoji-ttf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # apple-emoji = {
+    #   url = "github:samuelngs/apple-emoji-ttf";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

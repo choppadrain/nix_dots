@@ -3,6 +3,7 @@
   inputs,
   self,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -12,28 +13,27 @@
       with self.nixosModules;
       [
         choppadrain
+	fonts
         zenBrowser
         nushell
         homeManager
         nixosModule
+	pipewire
         amdgpu
         hyprland
         waybar
         base
         themeSwitcher
-	utils
- 	yazi
-	kitty
+        utils
+        yazi
+        kitty
+        tmux
       ]
       ++ [
         {
           home-manager.users.choppadrain = {
             imports = with self.homeModules; [
             ];
-	    home.packages = with pkgs; [
-	    	vesktop
-		telegram-desktop
-	    ];
             home.stateVersion = "25.05";
             home.sessionVariables = {
               EDITOR = "nvim";
@@ -73,12 +73,10 @@
 
       environment.systemPackages = with pkgs; [
         vim
-        mesa
-        cargo
-        home-manager
-        neovim
-	kitty
-	nano
+        telegram-desktop
+        vesktop
+	steam
+	neovim
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };
