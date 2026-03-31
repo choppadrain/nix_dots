@@ -13,7 +13,7 @@
       with self.nixosModules;
       [
         choppadrain
-	fonts
+	fontsTest
         zenBrowser
         nushell
         homeManager
@@ -76,7 +76,9 @@
         telegram-desktop
         vesktop
 	steam
-	neovim
+	inputs.self.packages.${pkgs.system}.neovim
+	prismlauncher
+	jdk25_headless
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };
