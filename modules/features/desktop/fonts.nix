@@ -1,6 +1,6 @@
 
 {self, inputs, ...}:{
-flake.nixosModules.fontsTest = {
+flake.nixosModules.fonts = {
   pkgs,
   lib,
   ...

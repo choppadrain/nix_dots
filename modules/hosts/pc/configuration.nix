@@ -13,12 +13,12 @@
       with self.nixosModules;
       [
         choppadrain
-	fontsTest
+	    fonts
         zenBrowser
         nushell
         homeManager
         nixosModule
-	pipewire
+	    pipewire
         amdgpu
         hyprland
         waybar
@@ -75,10 +75,11 @@
         vim
         telegram-desktop
         vesktop
-	steam
-	inputs.self.packages.${pkgs.system}.neovim
-	prismlauncher
-	jdk25_headless
+	    steam
+	    inputs.self.packages.${pkgs.system}.neovim
+	    prismlauncher
+	    jdk25_headless
+	    inputs.helium.packages.${system}.default
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

@@ -14,7 +14,7 @@
           include kitty-colors.conf
         '';
         settings = {
-	  fon_family = "SFMono Semi Bold Nerd";
+	  font_family = "SFMono Semi Bold Nerd";
           transparency = "0.9";
           cursor_trail = "1";
           cursor_trail_decay = "0.075 0.175";

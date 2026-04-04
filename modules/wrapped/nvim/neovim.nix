@@ -4,17 +4,40 @@
 
       imports = [ wlib.wrapperModules.neovim ];
 
-      config = 
-{
+      config = {
       package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
       specs.general = with pkgs.vimPlugins; [
-	   nvim-treesitter.withAllGrammars
+        #completions
+        nvim-treesitter.withAllGrammars
+        nvim-lspconfig
+        luasnip
+        blink-cmp
+        friendly-snippets
+
+        undotree
+
+        #colorscheme
+        vague-nvim
       ];
 
       extraPackages = with pkgs; [
+        lua-language-server
+        gopls
+        nixd
       ];
-      settings.config_directory = ./.; # or lib.generators.mkLuaInline "vim.fn.stdpath('config')";
-	};
+      settings.config_directory = ./.; 	
+
+      specs.initLua = {
+	data = null;
+	before = ["MAIN_INIT"];
+        config = ''
+          require('init')
+        '';
+        };
+      };
+      
+
+
     };
   perSystem =
     {

@@ -16,9 +16,9 @@
     };
 
     neovim-nightly-overlay = {
-	url = "github:nix-community/neovim-nightly-overlay";
-	inputs.nixpkgs.follows = "nixpkgs";
-};
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -34,7 +34,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # apple-emoji = {
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # currently broken
+    # apple-emoji = {  
     #   url = "github:samuelngs/apple-emoji-ttf";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
