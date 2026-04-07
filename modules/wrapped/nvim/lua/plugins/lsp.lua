@@ -11,10 +11,14 @@
        -- Example: https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
        settings = {
          Lua = {
+           diagnostics = {
+               globals = {'vim', 'require'},
+           },
            runtime = {
              version = 'LuaJIT',
            }
          }
        }
-     } 
+     }
      vim.lsp.enable('lua_ls')
+     vim.lsp.enable('nixd')

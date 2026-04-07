@@ -1,4 +1,5 @@
-require('opts')
+require('config.opts')
 require('plugins.lsp')
 require('plugins.blink')
-require('colorscheme')
+require('config.colorscheme')
+require('config.diagnostics')

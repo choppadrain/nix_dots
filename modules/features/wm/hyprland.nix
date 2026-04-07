@@ -17,12 +17,12 @@
         wofi
         swww
         swaynotificationcenter
-	xdg-desktop-portal-gtk
-	xdg-desktop-portal
-	xdg-desktop-portal-wlr
-	grim
-	slurp
-	wl-clipboard
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal
+        xdg-desktop-portal-wlr
+        grim
+        slurp
+        wl-clipboard
 
       ];
       wayland.windowManager.hyprland = {
@@ -113,7 +113,7 @@
           "$mod" = "SUPER";
           bind = [
             # summoning apps
-	    "$mod, O, fullscreen"
+            "$mod, O, fullscreen"
             "$mod, return, exec, kitty"
             "$mod, tab, exec, kitty -e yazi"
             "$mod, D, exec, wofi --show drun"
