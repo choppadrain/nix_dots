@@ -22,3 +22,12 @@
      }
      vim.lsp.enable('lua_ls')
      vim.lsp.enable('nixd')
+     vim.lsp.config("tinymist", {
+         cmd = {'tinymist'},
+         filetypes = {"typst"},
+         root_markers = {".git", ".typst"},
+         settings = {
+             formatterMode = "typstyle",
+         },
+     })
+     vim.lsp.enable("tinymist")

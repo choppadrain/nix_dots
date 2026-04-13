@@ -14,7 +14,6 @@
       [
         choppadrain
         fonts
-        zenBrowser
         nushell
         homeManager
         nixosModule
@@ -79,7 +78,10 @@
         inputs.self.packages.${pkgs.system}.neovim
         prismlauncher
         jdk25_headless
+        typst
         inputs.helium.packages.${system}.default
+        zathura
+        libreoffice
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

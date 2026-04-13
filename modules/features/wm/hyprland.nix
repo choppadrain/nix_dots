@@ -15,7 +15,7 @@
       home.packages = with pkgs; [
         bibata-cursors
         wofi
-        swww
+        awww
         swaynotificationcenter
         xdg-desktop-portal-gtk
         xdg-desktop-portal
@@ -107,7 +107,7 @@
             "swaynotificationcenter"
             "waybar"
             "hyprctl setcursor Bibata-Modern-Ice 24"
-            "swww-daemon"
+            "awww-daemon"
           ];
 
           "$mod" = "SUPER";
