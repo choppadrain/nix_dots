@@ -13,6 +13,7 @@
       with self.nixosModules;
       [
         choppadrain
+        niri
         fonts
         nushell
         homeManager
@@ -82,6 +83,8 @@
         inputs.helium.packages.${system}.default
         zathura
         libreoffice
+        anki
+        easyeffects
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

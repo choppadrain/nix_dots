@@ -22,7 +22,6 @@
 
           undotree
 
-
           #colorscheme
           vague-nvim
         ];
@@ -31,7 +30,6 @@
           lua-language-server
           gopls
           nixd
-
 
           tinymist
         ];
