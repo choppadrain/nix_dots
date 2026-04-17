@@ -15,8 +15,8 @@
 
       programs.niri.enable = true;
 
-     #extra packages
-     environment.systemPackages = with pkgs; [
+      #extra packages
+      environment.systemPackages = with pkgs; [
         xwayland-satellite
         gamescope
         cage
