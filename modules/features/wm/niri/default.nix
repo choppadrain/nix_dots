@@ -29,6 +29,8 @@
         awww
         apple-cursor
         polkit_gnome
+        wofi
+        inputs.niri-scratchpad.packages.${pkgs.system}.default
       ];
     };
 }

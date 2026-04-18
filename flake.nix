@@ -19,14 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-
     niri = {
       url = "github:sodiboo/niri-flake/849983db4074cdd35f0b9afe71b799d8a049e727";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-scratchpad.url = "github:argosnothing/niri-scratchpad";
 
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
@@ -37,11 +34,6 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # currently broken
-    # apple-emoji = {
-    #   url = "github:samuelngs/apple-emoji-ttf";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -2,8 +2,6 @@
 {
   inputs,
   self,
-  lib,
-  pkgs,
   ...
 }:
 {
@@ -20,7 +18,6 @@
         nixosModule
         pipewire
         amdgpu
-        hyprland
         waybar
         base
         themeSwitcher

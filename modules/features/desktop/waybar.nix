@@ -18,18 +18,18 @@
             height = 20;
             margin = "1px 1px 1px 1px";
 
-            modules-left = [ "hyprland/workspaces" ];
+            modules-left = [ "niri/workspaces" ];
             modules-center = [ "clock" ];
             modules-right = [
               "cpu"
               "memory"
               "pulseaudio"
-              "hyprland/language"
+              "niri/language"
               "tray"
               "custom/notifications"
             ];
 
-            "hyprland/workspaces" = {
+            "niri/workspaces" = {
               "disable-scroll" = true;
               "show-special" = false;
               "all-outputs" = true;
@@ -105,7 +105,7 @@
               "tooltip" = false;
             };
 
-            "hyprland/language" = {
+            "niri/language" = {
               "format" = "  {} ";
               "format-en" = "en";
               "format-ru" = "ru";
