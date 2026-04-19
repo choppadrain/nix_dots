@@ -11,7 +11,7 @@
           "Mod+Return".action = spawn "kitty";
           "Mod+D".action =
             spawn-sh "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15";
-          "Mod+S".action = spawn-sh "AREA=$(slurp); FILE=~/Pictures/Screenshot-$(date +%Y-%m-%d-%H-%M-%S).png; grim -g \"$AREA\" \"$FILE\" && wl-copy < \"$FILE\"";
+          "Mod+S".action = spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy";
           "Mod+O".action = toggle-overview;
           "Mod+Q".action = close-window;
 
