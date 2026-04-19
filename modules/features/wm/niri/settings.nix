@@ -21,6 +21,9 @@
           { argv = [ "swaynotificationcenter" ]; }
           # { argv = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ]; }
           { argv = [ "niri-scratchpad" ]; }
+          { command = ["wl-clip-persist" "--clipboard" "both"]; }
+          { command = ["sh" "-c" "wl-paste --type text --watch cliphist store"]; }
+          { command = ["sh" "-c" "wl-paste --type image --watch cliphist store"]; }
         ];
 
         cursor = {

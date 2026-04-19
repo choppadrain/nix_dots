@@ -11,17 +11,7 @@
           "Mod+Return".action = spawn "kitty";
           "Mod+D".action =
             spawn-sh "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15";
-
-          "Super+Alt+S".action = spawn-sh "pkill orca || exec orca";
-
-          #"XF86AudioRaiseVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
-          #"XF86AudioLowerVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
-          #"XF86AudioMute".action        = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          #"XF86AudioMicMute".action     = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-
-          #"XF86MonBrightnessUp".action   = spawn "brightnessctl" "--class=backlight" "set" "+10%";
-          #"XF86MonBrightnessDown".action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
-
+          "Mod+S".action = spawn-sh "AREA=$(slurp); FILE=~/Pictures/Screenshot-$(date +%Y-%m-%d-%H-%M-%S).png; grim -g \"$AREA\" \"$FILE\" && wl-copy < \"$FILE\"";
           "Mod+O".action = toggle-overview;
           "Mod+Q".action = close-window;
 

@@ -74,6 +74,7 @@
         vesktop
         steam
         inputs.self.packages.${pkgs.system}.neovim
+        # inputs.self.packages.${pkgs.system}.myYazi
         prismlauncher
         jdk25_headless
         typst
