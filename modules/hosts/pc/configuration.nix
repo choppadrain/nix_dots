@@ -74,7 +74,6 @@
         vesktop
         steam
         inputs.self.packages.${pkgs.system}.neovim
-        inputs.self.packages.${pkgs.system}.myYazi
         prismlauncher
         jdk25_headless
         typst
@@ -83,6 +82,7 @@
         libreoffice
         anki
         easyeffects
+        lazygit
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

@@ -1,5 +1,6 @@
 require('config.opts')
 require('plugins.lsp')
+require('plugins.nvim-autopairs')
 require('plugins.blink')
 require('config.colorscheme')
 require('config.diagnostics')

@@ -9,6 +9,7 @@ o.hlsearch = true
 o.incsearch = true
 o.ignorecase = true
 o.relativenumber = true
+o.number = true
 o.wrap = false
 o.clipboard = "unnamedplus"
 o.encoding = "utf-8"

@@ -16,14 +16,21 @@
           #completions
           nvim-treesitter.withAllGrammars
           nvim-lspconfig
-          luasnip
+          tabout-nvim
+
+          nvim-autopairs
+          
+          fzf-lua
+
           blink-cmp
           friendly-snippets
+          luasnip
 
           undotree
 
           #colorscheme
           vague-nvim
+
         ];
 
         extraPackages = with pkgs; [
@@ -33,6 +40,7 @@
 
           tinymist
         ];
+
         settings.config_directory = ./.;
 
         specs.initLua = {
@@ -40,6 +48,7 @@
           before = [ "MAIN_INIT" ];
           config = ''
             require('init')
+
           '';
         };
       };
