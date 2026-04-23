@@ -3,6 +3,7 @@
   flake.nvimWrapped =
     {
       wlib,
+      config,
       pkgs,
       ...
     }:
@@ -10,27 +11,27 @@
 
       imports = [ wlib.wrapperModules.neovim ];
 
+
+    # importTrees = dirs: let
+    #   filter = f: f.hasExt "nix" && !lib.hasPrefix "_" f.name;
+    #   sets = map (lib.fileset.fileFilter filter) dirs;
+    # in
+    #   lib.fileset.toList (lib.fileset.unions sets);
+    
       config = {
         package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         specs.general = with pkgs.vimPlugins; [
           #completions
           nvim-treesitter.withAllGrammars
           nvim-lspconfig
-          tabout-nvim
-
-          nvim-autopairs
-          
-          fzf-lua
-
+          luasnip
           blink-cmp
           friendly-snippets
-          luasnip
 
           undotree
 
           #colorscheme
           vague-nvim
-
         ];
 
         extraPackages = with pkgs; [
@@ -40,20 +41,19 @@
 
           tinymist
         ];
-
         settings.config_directory = ./.;
+
 
         specs.initLua = {
           data = null;
           before = [ "MAIN_INIT" ];
           config = ''
             require('init')
-
           '';
         };
       };
-
     };
+
   perSystem =
     {
       pkgs,
