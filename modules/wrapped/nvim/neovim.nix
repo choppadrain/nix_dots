@@ -3,7 +3,6 @@
   flake.nvimWrapped =
     {
       wlib,
-      config,
       pkgs,
       ...
     }:
@@ -12,22 +11,23 @@
       imports = [ wlib.wrapperModules.neovim ];
 
 
-    # importTrees = dirs: let
-    #   filter = f: f.hasExt "nix" && !lib.hasPrefix "_" f.name;
-    #   sets = map (lib.fileset.fileFilter filter) dirs;
-    # in
-    #   lib.fileset.toList (lib.fileset.unions sets);
     
       config = {
         package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         specs.general = with pkgs.vimPlugins; [
           #completions
+          nvim-web-devicons
+          indent-blankline-nvim
+
           nvim-treesitter.withAllGrammars
           nvim-lspconfig
+
+          fzf-lua
           luasnip
           blink-cmp
           friendly-snippets
 
+          
           undotree
 
           #colorscheme

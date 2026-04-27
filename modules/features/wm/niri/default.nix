@@ -18,6 +18,7 @@
       #extra packages
       environment.systemPackages = with pkgs; [
         xwayland-satellite
+        swaynotificationcenter
         gamescope
         cage
         grim
