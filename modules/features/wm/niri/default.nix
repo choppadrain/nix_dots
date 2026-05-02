@@ -31,7 +31,6 @@
         apple-cursor
         polkit_gnome
         wofi
-        inputs.niri-scratchpad.packages.${pkgs.system}.default
         wl-clip-persist
         cliphist
 

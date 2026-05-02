@@ -23,7 +23,6 @@
       url = "github:sodiboo/niri-flake/849983db4074cdd35f0b9afe71b799d8a049e727";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-scratchpad.url = "github:argosnothing/niri-scratchpad";
 
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";

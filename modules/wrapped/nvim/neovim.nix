@@ -13,7 +13,7 @@
 
     
       config = {
-        package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
+          # package = pkgs.neovim;
         specs.general = with pkgs.vimPlugins; [
           #completions
           nvim-web-devicons

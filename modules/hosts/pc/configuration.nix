@@ -83,6 +83,7 @@
         anki
         easyeffects
         lazygit
+        inputs.self.packages.${pkgs.system}.starship
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

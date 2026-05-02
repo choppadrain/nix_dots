@@ -9,9 +9,8 @@
     programs.tmux = {
       enable = true;
       extraConfig = ''
-        ubind -a -T root
         
-        
+        unbind -a
 
         bind -n M-1 select-window -t 1
         bind -n M-2 select-window -t 2
@@ -34,17 +33,22 @@
         bind -n M-S-l resize-pane -R 5
 
         bind -n M-Enter new-window
-        bind 
+
+
+        bind -n M-q kill-pane
+        bind -n M-q kill-window
+
+        bind -n M-u split-window -h    
+        bind -n M-i split-window -v
 
 
 
-        setw -g move-keys vi
         setw -g pane-base-index 1
 
         set -g base-index 1
         set -g default-terminal "kitty"
         
-        set -s ecape-time 0
+        set -s escape-time 0
         
         
         set -g status-style "bg=default,fg=black,bright"
