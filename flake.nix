@@ -1,10 +1,10 @@
 #flake.nix
-{
+{ 
   description = "main flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    wrappers.url = "github:BirdeeHub/nix-wrapper-modules";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";

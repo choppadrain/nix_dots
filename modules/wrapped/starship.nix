@@ -11,7 +11,7 @@ let
 
     config = {
       package = pkgs.starship;
-      env.STARSHIP_CONFIG = "$out/starship.toml";
+      env.STARSHIP_CONFIG = config.constructFiles.settings.path;
       settings = ''
         add_newline = false;
       '';
@@ -25,10 +25,10 @@ in
 {
   flake.starshipWrapped = starshipWrapped;
 
-  perSystem = { pkgs,self, ... }: {
-    packages.starship = inputs.wrapper-modules.lib.wrapPackage {
+  perSystem = { pkgs, ... }: {
+    packages.starship = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
-      modules = [ self.starshipWrapped ];
+      imports = [ starshipWrapped ];
     };
   };
 }

@@ -60,7 +60,7 @@
       ...
     }:
     {
-      packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
+      packages.neovim = inputs.wrappers.wrappers.neovim.wrap {
         imports = [ self.nvimWrapped ];
         inherit pkgs;
       };
