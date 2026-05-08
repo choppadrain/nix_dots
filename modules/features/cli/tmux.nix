@@ -60,6 +60,8 @@
 
         set -g mouse on
 
+        set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
+
         set -g renumber-windows on
         set -sg terminal-overrides ",*:RGB"
 
