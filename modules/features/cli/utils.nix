@@ -6,7 +6,7 @@
 
       environment.systemPackages = with pkgs; [
         fzf
-        swww
+        awww
         p7zip-rar
         ripgrep
         ncdu

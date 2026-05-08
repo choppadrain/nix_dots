@@ -9,7 +9,7 @@
     programs.tmux = {
       enable = true;
       extraConfig = ''
-        
+
         unbind -a
 
         bind -n M-1 select-window -t 1
@@ -47,10 +47,10 @@
 
         set -g base-index 1
         set -g default-terminal "kitty"
-        
+
         set -s escape-time 0
-        
-        
+
+
         set -g status-style "bg=default,fg=black,bright"
         set -g status-left "#S"
         set -g status-right "#[fg=black, bright]#S"

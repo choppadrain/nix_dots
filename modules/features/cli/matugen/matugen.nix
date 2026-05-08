@@ -21,7 +21,7 @@
           jsonFormat = "hex"
 
           [config.wallpaper]
-          command = "swww"
+          command = "awww"
           arguments = ["img", "--transition-type", "center"]
 
           [templates.gtk3]

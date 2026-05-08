@@ -10,10 +10,8 @@
 
       imports = [ wlib.wrapperModules.neovim ];
 
-
-    
       config = {
-          # package = pkgs.neovim;
+        # package = pkgs.neovim;
         specs.general = with pkgs.vimPlugins; [
           #completions
           nvim-web-devicons
@@ -27,7 +25,6 @@
           blink-cmp
           friendly-snippets
 
-          
           undotree
 
           #colorscheme
@@ -42,7 +39,6 @@
           tinymist
         ];
         settings.config_directory = ./.;
-
 
         specs.initLua = {
           data = null;

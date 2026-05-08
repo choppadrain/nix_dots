@@ -1,8 +1,9 @@
-#flake.nix
-{ 
+{
   description = "main flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    base16.url = "github:SenchoPens/base16.nix";
 
     wrappers.url = "github:BirdeeHub/nix-wrapper-modules";
 
@@ -11,11 +12,6 @@
 
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,6 +34,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
   };
+
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
