@@ -1,54 +1,50 @@
 {
   inputs,
-  self,
-  config,
   ...
 }:
 let
   starshipWrapped =
     {
-      lib,
-      pkgs,
       wlib,
-      config,
       ...
     }:
     {
-      imports = [ wlib.modules.default ];
+      imports = [ wlib.wrapperModules.starship ];
 
-      options.settings = lib.mkOption {
-        type = lib.types.lines;
-        default = "";
-        description = "starship.toml";
-      };
+        config = {
+            settings = {
+                add_newline = true;  
+                right_format = "";
+                format = "$directory$git_branch$git_status";
 
-      config = {
-        package = pkgs.starship;
-        env.STARSHIP_CONFIG = config.constructFiles.settings.path;
-        settings = ''
-            add_newline = false
-              
-           
-            format = "$directory$character"
+                directory = {
+                    style = "bold italic";
+                    format = "[$path](style)";
+                    truncation_length = 2;
+                    truncation_symbol = "./";
 
-            [directory]
-            truncation_length = 3 
-            truncation_symbol = "…/"
-            home_symbol = "󱂵 ~" 
-            read_only = " 󰌾" 
-            use_os_path_sep = true 
+                };
 
-            [character]
-            success_symbol = ""
-            error_symbol = ""
-                
+                git_branch = {
+                    symbol = "";
+                    format = "[ $symbol $branch](fg:blue bold) ";
+                };
 
-        '';
-        constructFiles.settings = {
-          content = config.settings;
-          relPath = "starship.toml";
+                git_status = {
+                    format = "[$all_status]($style)";
+                    style = "red";
+                    ahead = ''⇡''${count}'';
+                    diverged = ''⇕⇡''${ahead_count}⇣''${behind_count} '';
+                    behind = ''⇣''${count} '';
+                    conflicted = "";
+                    up_to_date = "";
+                    untracked = "?";
+                    modified = "";
+                };
+
+
+            };
         };
-      };
     };
 
 in
@@ -65,6 +61,6 @@ in
     };
 
     flake.nixosModules.starship = {lib, ...}:
-        lib.mkMyPkg "starship";
+         lib.mkMyPkg "starship";
 }
 

@@ -10,8 +10,11 @@
     programs.nushell = {
       enable = true;
       extraConfig = ''
+        $env.STARSHIP_SHELL = "nu"
         $env.EDITOR = "nvim"
         $env.VISUAL = "nvim"
+        $env.PROMPT_INDICATOR_VI_INSERT = " ❯ "
+        $env.PROMPT_INDICATOR_VI_NORMAL = " │ "
         $env.config = {
             show_banner: false
             edit_mode: vi
