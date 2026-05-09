@@ -38,7 +38,7 @@ let
                     diverged = ''[⇕⇡ ''${ahead_count}⇣''${behind_count} ](bold yellow)'';
                     behind = ''[⇣''${count} ](bold red) '';
                     conflicted = "[ ](magenta) ";
-                    up_to_date = "[ ](italic white)";
+                    up_to_date = "[ ](bold bright-green)";
                     untracked = "[? ](magenta)";
                     modified = "[ ](bright-blue)";
                     deleted = "[✘ ](red)";
