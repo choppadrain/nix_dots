@@ -1,5 +1,5 @@
-{ ... }:
-{
+{inputs, ... }: {
+flake.nixosModules.niri = {...}:{
   config.scheme = {
     slug = "vague";
     scheme = "Vague";
@@ -20,5 +20,6 @@
     base0D = "6e94b2";
     base0E = "bb9dbd";
     base0F = "e08398";
+    };
   };
 }

@@ -35,10 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tt-schemes = {
-      url = "github:tinted-theming/schemes";
-      flake = false;
-    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

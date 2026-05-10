@@ -5,127 +5,76 @@
       self.homeModules.waybar
     ];
   };
-  flake.homeModules.waybar = {
+  flake.homeModules.waybar = {config,...}:
+  let
+    scheme = config.scheme.withHastag;
+  in
+
+  {
     programs = {
       waybar = {
         enable = true;
 
         settings = {
           main = {
-            layer = "bottom";
-            position = "top";
+            layer = "top";
+        position = "left";
+        exclusive = true;
+        width = 30;
+        margin-top = 0;
+        margin-bottom = 0;
+        margin-left = 0;
+        spacing = 0;
 
-            height = 20;
-            margin = "1px 1px 1px 1px";
+        modules-left = [];
+        modules-center = [ "niri/workspaces" ];
+        modules-right = [ "clock" "tray" ];
 
-            modules-left = [ "niri/workspaces" ];
-            modules-center = [ "clock" ];
-            modules-right = [
-              "cpu"
-              "memory"
-              "pulseaudio"
-              "niri/language"
-              "tray"
-              "custom/notifications"
-            ];
+        "niri/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            active = "●";
+            default = "○";
+          };
+        };
 
-            "niri/workspaces" = {
-              "disable-scroll" = true;
-              "show-special" = false;
-              "all-outputs" = true;
-              "format" = "{icon}";
-              "persistent-workspaces" = {
-                "*" = 4;
-              };
-              "format-icons" = {
-                "1" = "1";
-                "2" = "2";
-                "3" = "3";
-                "4" = "4";
-                "5" = "5";
-                "6" = "6";
-                "7" = "7";
-                "8" = "8";
-                "9" = "9";
-                "10" = "10";
-              };
-            };
-
-            "clock" = {
-              format = "{:%a %d %b %H:%M}";
-              tooltip = false;
-            };
-            "custom/notifications" = {
-              format = "{icon}{text}";
-              tooltip = false;
-              rotate = 0;
-              format-icons = {
-                notification = " <span foreground='red'><sup></sup></span>";
-                none = " ";
-                dnd-notification = " <span foreground='red'><sup></sup></span>";
-                dnd-none = " ";
-                inhibited-notification = " <span foreground='red'><sup></sup></span>";
-                inhibited-none = " ";
-                dnd-inhibited-notification = " <span foreground='red'><sup></sup></span>";
-                dnd-inhibited-none = " ";
-              };
-              return-type = "json";
-              exec = "swaync-client -swb";
-              on-click = "swaync-client -t -sw";
-              escape = true;
-            };
-            "cpu" = {
-              format = " {usage}%";
-              interval = 2;
-              tooltip = false;
-            };
-
-            "memory" = {
-              format = "  {used:0.1f}G/{total:0.1f}G";
-              tooltip = false;
-              interval = 5;
-            };
-
-            "tray" = {
-              spacing = 5;
-            };
-
-            "pulseaudio" = {
-              "scroll-step" = 5;
-              "format" = " {icon}{volume}%";
-              "format-muted" = "󰖁 Muted";
-              "format-icons" = {
-                "default" = [
-                  " "
-                  " "
-                  "  "
-                ];
-              };
-              "on-click" = "pamixer -t";
-              "tooltip" = false;
-            };
-
-            "niri/language" = {
-              "format" = "  {} ";
-              "format-en" = "en";
-              "format-ru" = "ru";
-              "format-ro" = "ro";
+        clock = {
+          format = "{:%H\n%M\n -\n%d\n%m}"; 
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "month";
+            mode-mon-col = 3;
+            on-scroll = 1;
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
             };
           };
         };
-        style = ''
+
+        tray = {
+          icon-size = 18;
+          spacing = 10;
+        };
+      };
+          };
+        style =  ''
           * {
            padding: 0.1rem;
            font-size: 15px;
                   font-family: "SFMono Nerd Font Bold";
+                  color: white;
           }
                  window#waybar {
-                   background-color: rgba(0, 8, 17, 0.7);
+                   background-color: rgba(0, 8, 17, 1);
           }
 
 
-        '';
+        ''; 
       };
     };
-  };
+    };
 }

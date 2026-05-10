@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.nixosModules.fonts =
     {
@@ -28,6 +28,9 @@
             monospace = [
               "SFMono Nerd Font Semibold"
               "JetBrainsMono Nerd Font"
+            ];
+            emoji = [
+                "Apple Color Emoji"
             ];
           };
           localConf = ''
