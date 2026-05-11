@@ -10,6 +10,8 @@
     modules =
       with self.nixosModules;
       [
+        vm
+        base16
         choppadrain
         niri
         fonts
@@ -43,7 +45,7 @@
 
   };
   flake.nixosModules.nixosModule =
-    { pkgs, ... }:
+    { pkgs, self',... }:
     {
       programs.git.enable = true;
 
@@ -85,6 +87,7 @@
         easyeffects
         lazygit
         # starship
+        inputs.self.packages.${pkgs.system}.waybar
         inputs.self.packages.${pkgs.system}.starship
       ];
       system.stateVersion = "25.05"; # Did you read the comment?

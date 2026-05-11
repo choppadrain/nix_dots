@@ -1,4 +1,4 @@
-{ inputs, self, ... }:
+{  self, ... }:
 let
   username = "choppadrain";
 in
@@ -18,6 +18,8 @@ in
           "video"
           "audio"
           "tty"
+          "kvm"
+          "libvirtd"
         ];
 
         initialPassword = "changeme420";

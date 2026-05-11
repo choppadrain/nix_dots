@@ -11,16 +11,14 @@
     default = { };
   };
 
-  config.flake.lib  = {
-    mkMyPkg= name: {
-        nixpkgs.overlays = [
-            (final: prev: {
-            "${name}" = inputs.self.packages.${pkgs.system}.${name};
-            })
-        ];
-        
+  config.flake.lib = {
+    mkMyPkg = name: {
+      nixpkgs.overlays = [
+        (final: prev: {
+          "${name}" = inputs.self.packages.${pkgs.system}.${name};
+        })
+      ];
+
     };
   };
 }
-
-

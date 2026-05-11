@@ -1,20 +1,19 @@
-{lib, ... }:{
-flake.nixosModules.fonts =
+{ lib, ... }:
+{
+  flake.nixosModules.fonts =
     {
       pkgs,
       ...
     }:
-let
-
+    let
 
       apple-emoji = pkgs.stdenv.mkDerivation {
         pname = "apple-emoji";
         version = "latest";
-              src = pkgs.fetchurl {
-        url = "https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji-Linux.ttf";
-        sha256 = "sha256-U1oEOvBHBtJEcQWeZHRb/IDWYXraLuo0NdxWINwPUxg=";
-      };
-
+        src = pkgs.fetchurl {
+          url = "https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji-Linux.ttf";
+          sha256 = "sha256-U1oEOvBHBtJEcQWeZHRb/IDWYXraLuo0NdxWINwPUxg=";
+        };
 
         dontUnpack = true;
         dontBuild = true;
@@ -28,9 +27,8 @@ let
           license = lib.licenses.asl20;
         };
       };
-      in
+    in
     {
-        fonts.packages = [apple-emoji];
+      fonts.packages = [ apple-emoji ];
     };
 }
-
