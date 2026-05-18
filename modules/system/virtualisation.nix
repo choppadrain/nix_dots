@@ -1,7 +1,7 @@
 {self,...}:{
-  flake.nixosModules.vm = {pkgs, ...}:{
+  flake.modules.nixos.vm = {pkgs, ...}:{
     home-manager.sharedModules = [
-        self.homeModules.dconf
+        self.modules.homeManager.vm
     ];
           programs.dconf.enable = true;
           environment.systemPackages = with pkgs;[
@@ -20,7 +20,7 @@
             };
         };
     };
-    flake.homeModules.dconf = {...}:{
+    flake.modules.homeManager.vm = {...}:{
         dconf.settings = {
               "org/virt-manager/virt-manager/connections" = {
     autoconnect = ["qemu:///system"];

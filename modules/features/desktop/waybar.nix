@@ -1,11 +1,11 @@
 { self, ... }:
 {
-  flake.nixosModules.waybar = {
+  flake.modules.nixos.waybar = {
     home-manager.sharedModules = [
-      self.homeModules.waybar
+      self.modules.homeManager.waybar
     ];
   };
-  flake.homeModules.waybar =
+  flake.modules.homeManager.waybar =
     {  ... }:
     {
       programs = {

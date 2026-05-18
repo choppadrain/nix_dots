@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.nixosModules.themeSwitcher = {
+  flake.modules.nixos.themeSwitcher = {
     home-manager.sharedModules = with self.homeModules; [
       matugen
     ];

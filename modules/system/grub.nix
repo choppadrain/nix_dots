@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.grub =
+  flake.modules.nixos.base =
     { ... }:
     {
       boot.loader = {

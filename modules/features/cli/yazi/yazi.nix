@@ -1,6 +1,6 @@
 { self, ... }:
 {
-  flake.nixosModules.yazi = {
+  flake.modules.nixos.yazi = {
     home-manager.sharedModules = [
       self.homeModules.yazi
     ];

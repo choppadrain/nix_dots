@@ -8,8 +8,9 @@
   flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules =
-      with self.nixosModules;
+      with self.modules.nixos;
       [
+        base16test
         vm
         base16
         choppadrain
@@ -17,8 +18,7 @@
         fonts
         nushell
         homeManager
-        nixosModule
-        pipewire
+        nixos
         amdgpu
         waybar
         base
@@ -44,8 +44,8 @@
       ];
 
   };
-  flake.nixosModules.nixosModule =
-    { pkgs, self',... }:
+  flake.modules.nixos.nixos =
+    { pkgs, ... }:
     {
       programs.git.enable = true;
 
@@ -71,6 +71,8 @@
 
       i18n.defaultLocale = "en_US.UTF-8";
 
+        programs.steam.enable = true;
+
       environment.systemPackages = with pkgs; [
         vim
         telegram-desktop
@@ -86,8 +88,9 @@
         anki
         easyeffects
         lazygit
+        gamemode
         # starship
-        inputs.self.packages.${pkgs.system}.waybar
+        # inputs.self.packages.${pkgs.system}.waybar
         inputs.self.packages.${pkgs.system}.starship
       ];
       system.stateVersion = "25.05"; # Did you read the comment?

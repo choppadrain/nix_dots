@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.niri =
+  flake.modules.homeManager.niri =
     { pkgs, ... }:
     {
       home.pointerCursor = {
@@ -10,6 +10,7 @@
         name = "macOS";
         size = 21;
       };
+
       programs.niri.settings = {
         prefer-no-csd = true;
 

@@ -27,6 +27,7 @@ let
           time = {
 
           };
+
           git_branch = {
             symbol = "  ";
             format = "[$symbol$branch](fg:blue italic bold ) ";

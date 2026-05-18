@@ -1,11 +1,11 @@
 { self, ... }:
 {
-  flake.nixosModules.kitty = {
+  flake.modules.nixos.kitty = {
     home-manager.sharedModules = [
-      self.homeModules.kitty
+      self.modules.homeManager.kitty
     ];
   };
-  flake.homeModules.kitty = {
+  flake.modules.homeManager.kitty = {
     programs = {
       kitty = {
         enableGitIntegration = true;

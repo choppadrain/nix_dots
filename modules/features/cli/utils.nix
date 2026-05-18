@@ -1,6 +1,6 @@
-{ self, ... }:
+{  ... }:
 {
-  flake.nixosModules.utils =
+  flake.modules.nixos.utils =
     { pkgs, ... }:
     {
 

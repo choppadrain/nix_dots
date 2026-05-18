@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.niri =
+  flake.modules.homeManager.niri =
     { config, ... }:
     {
       programs.niri.settings = {

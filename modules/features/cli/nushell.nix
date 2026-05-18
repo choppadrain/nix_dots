@@ -1,12 +1,12 @@
 { self, ... }:
 {
-  flake.nixosModules.nushell = {
+  flake.modules.nixos.nushell = {
     home-manager.sharedModules = [
-      self.homeModules.nushell
+      self.modules.homeManager.nushell
     ];
   };
 
-  flake.homeModules.nushell = {
+  flake.modules.homeManager.nushell = {
     programs.nushell = {
       enable = true;
       extraConfig = ''

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.amdgpu =
+  flake.modules.nixos.amdgpu =
     { pkgs, ... }:
     {
       services.xserver.videoDrivers = [ "amdgpu" ];

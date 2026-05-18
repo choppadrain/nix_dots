@@ -1,13 +1,13 @@
 { self, inputs, ... }:
 {
-  flake.nixosModules.niri =
+  flake.modules.nixos.niri =
     { pkgs, ... }:
     {
       imports = [
         inputs.niri.nixosModules.niri
       ];
       home-manager.sharedModules = [
-        self.homeModules.niri
+        self.modules.homeManager.niri
       ];
 
       nixpkgs.overlays = [ inputs.niri.overlays.niri ];

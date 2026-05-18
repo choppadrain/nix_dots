@@ -1,14 +1,15 @@
 { inputs,self,... }:
 {
-  flake.waybarWrapped =
-    { wlib,  ... }:let 
-        
-    in
+  flake.modules.nixos.waybar =
+    { wlib,    ... }: 
+
     {
       imports = [ wlib.wrapperModules.waybar ];
+        
+
       config = {
         settings = {
-            # main = {
+             main = {
               layer = "top";
               position = "left";
               exclusive = true;
@@ -63,7 +64,7 @@
                 icon-size = 18;
                 spacing = 10;
               };
-            # };
+             };
         };
 
         "style.css".content = ''
@@ -83,7 +84,7 @@
     { pkgs, ... }:
     {
         packages.waybar = inputs.wrappers.wrappers.waybar.wrap {
-            imports = [self.waybarWrapped];
+            imports = [inputs.self.modules.nixos.waybar];
             inherit pkgs;
         };
     };

@@ -1,11 +1,11 @@
 { self, ... }:
 {
-  flake.nixosModules.tmux = {
+  flake.modules.nixos.tmux = {
     home-manager.sharedModules = [
-      self.homeModules.tmux
+      self.modules.homeManager.tmux
     ];
   };
-  flake.homeModules.tmux = {
+  flake.modules.homeManager.tmux = {
     programs.tmux = {
       enable = true;
       extraConfig = ''

@@ -3,12 +3,9 @@ let
   username = "choppadrain";
 in
 {
-  flake.nixosModules."${username}" =
+  flake.modules.nixos."${username}" =
     { pkgs, lib, ... }:
     {
-      imports = with self.nixosModules; [
-        grub
-      ];
       users.users."${username}" = {
         isNormalUser = true;
         shell = pkgs.nushell;
