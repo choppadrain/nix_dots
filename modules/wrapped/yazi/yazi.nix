@@ -18,12 +18,14 @@
       };
 
       config = {
+
         constructFiles.initLua = {
           content = config.initLua;
           relPath = "${config.binName}-config/init.lua";
         };
 
         initLua = ''
+
           require("full-border"):setup {
           type = ui.Border.PLAIN,
           }
@@ -32,25 +34,18 @@
         '';
 
         settings = {
-          yazi = {
-            mgr = {
-                prepend_keymap = {
-                    on = "f";
-                    run  = "plugin jump-to-char";
-                    desc = "Jump to char";  
-                };
-            };
-          };
         };
 
-        plugins = with pkgs.yaziPlugins; {
+        plugins = (with pkgs.yaziPlugins; {
           full-border = full-border;
           git = git;
           jump-to-char = jump-to-char;
           clipboard = clipboard;
           smart-enter = smart-enter;
           starship = starship;
-        };
+        } // {
+            fuzzy-search = inputs.fuzzy-search;
+        });
       };
     };
 

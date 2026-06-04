@@ -27,7 +27,12 @@
 
     fuzzy-search = {
       url = "github:onelocked/fuzzy-search.yazi";
-      inputs.nixpkgs.follows = "nixpkgs";
+      flake = false;
+    };
+    
+    yaziGit = {
+        url = "github:sxyazi/yazi";
+        flake = false;
     };
 
     apple-fonts = {
