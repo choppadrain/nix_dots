@@ -6,7 +6,7 @@
     ];
   };
   flake.modules.homeManager.waybar =
-    {  ... }:
+    { ... }:
     {
       programs = {
         waybar = {
@@ -24,8 +24,8 @@
               spacing = 15;
 
               modules-left = [ ];
-              modules-center = [ 
-                "niri/workspaces" 
+              modules-center = [
+                "niri/workspaces"
               ];
 
               modules-right = [

@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-  flake.nvimWrapped =
+  flake.modules.nixos.nvim =
     {
       wlib,
       pkgs,
@@ -57,7 +57,7 @@
     }:
     {
       packages.neovim = inputs.wrappers.wrappers.neovim.wrap {
-        imports = [ self.nvimWrapped ];
+        imports = [ self.modules.nixos.nvim ];
         inherit pkgs;
       };
     };

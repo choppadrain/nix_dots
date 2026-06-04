@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.base16 =
 
-    { ... }: 
+    { ... }:
 
     {
       imports = [

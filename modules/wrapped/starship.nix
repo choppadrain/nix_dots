@@ -24,10 +24,6 @@ let
 
           };
 
-          time = {
-
-          };
-
           git_branch = {
             symbol = "  ";
             format = "[$symbol$branch](fg:blue italic bold ) ";
@@ -60,7 +56,6 @@ let
             unknown_msg = "[unknown shell](bold yellow)";
             format = "via [☃️ $state(\($name\))](bold blue) ";
           };
-            
 
         };
       };

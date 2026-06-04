@@ -24,7 +24,6 @@
         base
         themeSwitcher
         utils
-        yazi
         kitty
         tmux
         zen_kernel
@@ -71,7 +70,7 @@
 
       i18n.defaultLocale = "en_US.UTF-8";
 
-        programs.steam.enable = true;
+      programs.steam.enable = true;
 
       environment.systemPackages = with pkgs; [
         vim
@@ -90,6 +89,7 @@
         lazygit
         gamemode
         # starship
+        inputs.self.packages.${pkgs.system}.yazi
         # inputs.self.packages.${pkgs.system}.waybar
         inputs.self.packages.${pkgs.system}.starship
       ];
