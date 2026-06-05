@@ -31,21 +31,28 @@
           }
 
           require("starship"):setup()
+
+require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
         '';
 
         settings = {
         };
 
-        plugins = (with pkgs.yaziPlugins; {
-          full-border = full-border;
-          git = git;
-          jump-to-char = jump-to-char;
-          clipboard = clipboard;
-          smart-enter = smart-enter;
-          starship = starship;
-        } // {
+        plugins = (
+          with pkgs.yaziPlugins;
+          {
+            full-border = full-border;
+            relative-motions = relative-motions;
+            git = git;
+            jump-to-char = jump-to-char;
+            clipboard = clipboard;
+            smart-enter = smart-enter;
+            starship = starship;
+          }
+          // {
             fuzzy-search = inputs.fuzzy-search;
-        });
+          }
+        );
       };
     };
 

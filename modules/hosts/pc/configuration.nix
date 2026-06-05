@@ -11,6 +11,7 @@
       with self.modules.nixos;
       [
         base16test
+        scroll
         vm
         base16
         choppadrain
@@ -81,6 +82,7 @@
         prismlauncher
         jdk25_headless
         typst
+inputs.scroll-flake.packages.${system}.default
         inputs.helium.packages.${system}.default
         zathura
         libreoffice
@@ -88,9 +90,8 @@
         easyeffects
         lazygit
         gamemode
-        # starship
         inputs.self.packages.${pkgs.system}.yazi
-        # inputs.self.packages.${pkgs.system}.waybar
+        inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
       ];
       system.stateVersion = "25.05"; # Did you read the comment?

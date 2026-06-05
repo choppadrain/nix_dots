@@ -14,6 +14,11 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
+    
+    scroll-flake = {
+      url = "github:AsahiRocks/scroll-flake";
+      inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
+    };
 
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
@@ -29,10 +34,10 @@
       url = "github:onelocked/fuzzy-search.yazi";
       flake = false;
     };
-    
-    yaziGit = {
-        url = "github:sxyazi/yazi";
-        flake = false;
+
+    scroll = {
+      url = "github:dawsers/scroll";
+      flake = false;
     };
 
     apple-fonts = {

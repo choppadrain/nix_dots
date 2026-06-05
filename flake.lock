@@ -393,9 +393,82 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs_2",
         "otter-launcher": "otter-launcher",
+        "scroll": "scroll",
+        "scroll-flake": "scroll-flake",
         "tt-schemes": "tt-schemes",
-        "wrappers": "wrappers",
-        "yaziGit": "yaziGit"
+        "wrappers": "wrappers"
+      }
+    },
+    "scroll": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780475081,
+        "narHash": "sha256-spdNUGyAcIuAHJ02FxS5gxfP12YWHH6W5CeLCaLqBbQ=",
+        "owner": "dawsers",
+        "repo": "scroll",
+        "rev": "5aab6e216905a88410b1b42329926f2056fe6a3d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dawsers",
+        "repo": "scroll",
+        "type": "github"
+      }
+    },
+    "scroll-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "scroll-git": "scroll-git",
+        "scroll-stable": "scroll-stable"
+      },
+      "locked": {
+        "lastModified": 1774127640,
+        "narHash": "sha256-BcFF02wr3l7ek7W7EOTdbFzS7bTev46st483zw2+U0Y=",
+        "owner": "AsahiRocks",
+        "repo": "scroll-flake",
+        "rev": "432b77dc8aa815a5846e9545eff2ea3079a02f87",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsahiRocks",
+        "repo": "scroll-flake",
+        "type": "github"
+      }
+    },
+    "scroll-git": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773502109,
+        "narHash": "sha256-0+0KQ6+g497bJd0Bhdd4/fOamBM8Cw27iSSJD9bKvio=",
+        "ref": "master",
+        "rev": "d79ffd2304b80bc66545bd3b691b29578ea6b9a6",
+        "revCount": 8216,
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      },
+      "original": {
+        "ref": "master",
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      }
+    },
+    "scroll-stable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771347627,
+        "narHash": "sha256-fhNC5i9ZHvXWKQY+zDRHr7QovmquU0eLI8/QY3euBnc=",
+        "ref": "refs/tags/1.12.5",
+        "rev": "f265ef29ef3752299f2ef19c154ef1b908515914",
+        "revCount": 8164,
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
+      },
+      "original": {
+        "ref": "refs/tags/1.12.5",
+        "type": "git",
+        "url": "https://github.com/dawsers/scroll"
       }
     },
     "sf-arabic": {
@@ -576,22 +649,6 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "type": "github"
-      }
-    },
-    "yaziGit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780290961,
-        "narHash": "sha256-XPSfzLmyGeGMU5o1gaRp8XVVFFLxri93TXpzTr38Ti8=",
-        "owner": "sxyazi",
-        "repo": "yazi",
-        "rev": "8e80798984864799cd72b3625b21edc33b1ba1e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sxyazi",
-        "repo": "yazi",
         "type": "github"
       }
     }

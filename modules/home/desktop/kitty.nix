@@ -16,6 +16,7 @@
         settings = {
           font_family = "SFMono Semi Bold Nerd";
           transparency = "0.9";
+          enable_audio_bell = "none";
           cursor_trail = "1";
           cursor_trail_decay = "0.075 0.175";
           cursor_trail_start_threshold = "0";
