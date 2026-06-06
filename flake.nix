@@ -1,5 +1,4 @@
 {
-  description = "main flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -15,13 +14,13 @@
       flake = false;
     };
 
-    scroll-flake = {
-      url = "github:AsahiRocks/scroll-flake";
-      inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable
-    };
-
     otter-launcher = {
       url = "github:kuokuo123/otter-launcher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,16 +32,6 @@
     fuzzy-search = {
       url = "github:onelocked/fuzzy-search.yazi";
       flake = false;
-    };
-
-    scroll = {
-      url = "github:dawsers/scroll";
-      flake = false;
-    };
-
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     helium = {

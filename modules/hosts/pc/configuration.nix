@@ -38,7 +38,7 @@
             home.sessionVariables = {
               EDITOR = "nvim";
               VISUAL = "nvim";
-                };
+            };
 
           };
         }
@@ -83,7 +83,6 @@
         prismlauncher
         jdk25_headless
         typst
-        inputs.scroll-flake.packages.${system}.default
         inputs.helium.packages.${system}.default
         zathura
         libreoffice

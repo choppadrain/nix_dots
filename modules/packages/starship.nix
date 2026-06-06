@@ -1,9 +1,10 @@
 {
   inputs,
+  self,
   ...
 }:
-let
-  starshipWrapped =
+{
+  flake.modules.home.starship =
     {
       wlib,
       ...
@@ -15,7 +16,14 @@ let
         settings = {
           add_newline = true;
           right_format = "$time";
-          format = "$directory(white) $git_branch$git_status";
+          format = "$directory(white) $git_branch$git_status $character";
+
+          character = {
+            success_symbol = "[>](bold green)";
+
+             vimcmd_symbol = "[❮](bold yellow)";
+             vimcmd_replace_symbol = "[❮](bold purple)";
+          };
 
           directory = {
             format = "[$path](style)";
@@ -60,19 +68,12 @@ let
         };
       };
     };
-
-in
-{
-  flake.starshipWrapped = starshipWrapped;
-
   perSystem =
     { pkgs, ... }:
     {
       packages.starship = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ starshipWrapped ];
+        imports = [ self.modules.home.starship ];
       };
     };
-
-  flake.nixosModules.starship = { lib, ... }: lib.mkMyPkg "starship";
 }
