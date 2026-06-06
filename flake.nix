@@ -14,7 +14,7 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
-    
+
     scroll-flake = {
       url = "github:AsahiRocks/scroll-flake";
       inputs.nixpkgs.follows = "nixpkgs"; # this assumes nixos unstable

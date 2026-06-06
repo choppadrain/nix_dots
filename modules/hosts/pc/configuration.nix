@@ -11,7 +11,7 @@
       with self.modules.nixos;
       [
         base16test
-        scroll
+        # sway
         vm
         base16
         choppadrain
@@ -82,7 +82,7 @@
         prismlauncher
         jdk25_headless
         typst
-inputs.scroll-flake.packages.${system}.default
+        inputs.scroll-flake.packages.${system}.default
         inputs.helium.packages.${system}.default
         zathura
         libreoffice
@@ -93,6 +93,7 @@ inputs.scroll-flake.packages.${system}.default
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
+        # sway
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

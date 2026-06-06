@@ -26,13 +26,13 @@
 
         initLua = ''
 
-          require("full-border"):setup {
-          type = ui.Border.PLAIN,
-          }
+                    require("full-border"):setup {
+                    type = ui.Border.PLAIN,
+                    }
 
-          require("starship"):setup()
+                    require("starship"):setup()
 
-require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
+          require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
         '';
 
         settings = {
