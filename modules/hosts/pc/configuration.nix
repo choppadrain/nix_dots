@@ -11,13 +11,11 @@
       with self.modules.nixos;
       [
         base16test
-        # sway
         vm
         base16
         choppadrain
         niri
         fonts
-        nushell
         homeManager
         nixos
         amdgpu
@@ -32,7 +30,7 @@
       ++ [
         {
           home-manager.users.choppadrain = {
-            imports = with self.homeModules; [
+            imports = with self.modules.homeManager; [
             ];
             home.stateVersion = "25.05";
             home.sessionVariables = {
@@ -75,7 +73,6 @@
       programs.steam.enable = true;
 
       environment.systemPackages = with pkgs; [
-        vim
         telegram-desktop
         vesktop
         steam
@@ -85,15 +82,11 @@
         typst
         inputs.helium.packages.${system}.default
         zathura
-        libreoffice
         anki
-        easyeffects
-        lazygit
         gamemode
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
-        # sway
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

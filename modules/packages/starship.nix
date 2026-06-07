@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.modules.home.starship =
+  flake.modules.homeManager.starship =
     {
       wlib,
       ...
@@ -21,8 +21,8 @@
           character = {
             success_symbol = "[>](bold green)";
 
-             vimcmd_symbol = "[❮](bold yellow)";
-             vimcmd_replace_symbol = "[❮](bold purple)";
+            vimcmd_symbol = "[❮](bold yellow)";
+            vimcmd_replace_symbol = "[❮](bold purple)";
           };
 
           directory = {
@@ -73,7 +73,7 @@
     {
       packages.starship = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.home.starship ];
+        imports = [ self.modules.homeManager.starship ];
       };
     };
 }

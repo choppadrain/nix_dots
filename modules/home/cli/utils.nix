@@ -8,12 +8,10 @@
         fzf
         awww
         p7zip-rar
-        ripgrep
         ncdu
         iftop
         btop
         fastfetch
-        bat
         zoxide
         unzip
 

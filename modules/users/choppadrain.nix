@@ -1,4 +1,4 @@
-{ self, ... }:
+{ inputs, ... }:
 let
   username = "choppadrain";
 in
@@ -8,7 +8,8 @@ in
     {
       users.users."${username}" = {
         isNormalUser = true;
-        shell = pkgs.nushell;
+        shell = inputs.self.packages.${pkgs.system}.zsh;
+        # shell = pkgs.nushell;
         extraGroups = [
           "networkmanager"
           "wheel"

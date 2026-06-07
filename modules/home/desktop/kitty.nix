@@ -15,6 +15,7 @@
         '';
         settings = {
           font_family = "SFMono Semi Bold Nerd";
+          confirm_os_window_close = 0;
           transparency = "0.9";
           enable_audio_bell = "none";
           cursor_trail = "1";

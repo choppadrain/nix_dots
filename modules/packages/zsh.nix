@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.modules.home.zsh =
+  flake.modules.homeManager.zsh =
     {
       wlib,
       lib,
@@ -56,6 +56,7 @@
             alias ls="${lib.getExe pkgs.eza} --icons"
             alias ll="${lib.getExe pkgs.eza} -lah --icons --git"
             alias tree="${lib.getExe pkgs.eza} eza --tree --icons"
+            alias find="${lib.getExe pkgs.fd}"
             alias c="clear"
 
 
@@ -104,7 +105,7 @@
     {
       packages.zsh = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.home.zsh ];
+        imports = [ self.modules.homeManager.zsh ];
       };
     };
 
