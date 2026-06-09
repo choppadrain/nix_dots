@@ -29,6 +29,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    relative-motions = {
+      url = "github:dedukun/relative-motions.yazi/d4f2003b90a6129847e17107df76ba43091c7755";
+      flake = false;
+    };
+
     fuzzy-search = {
       url = "github:onelocked/fuzzy-search.yazi";
       flake = false;

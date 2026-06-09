@@ -31,11 +31,11 @@
           vague-nvim
         ];
 
-        extraPackages = with pkgs; [
+        runtimePkgs = with pkgs; [
+          #language servers
           lua-language-server
           gopls
           nixd
-
           tinymist
         ];
         settings.config_directory = ./.;

@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.home.yazi =
+  flake.modules.homeManager.yazi =
     { ... }:
     {
       config.settings.theme = {

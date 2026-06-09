@@ -37,7 +37,6 @@
               EDITOR = "nvim";
               VISUAL = "nvim";
             };
-
           };
         }
       ];
@@ -87,6 +86,7 @@
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
+        inputs.self.packages.${pkgs.system}.sway
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

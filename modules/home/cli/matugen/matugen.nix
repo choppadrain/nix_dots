@@ -1,5 +1,6 @@
 { self, ... }:
 {
+  #want to get rid of this shit with base16 so much
   flake.modules.nixos.themeSwitcher = {
     home-manager.sharedModules = with self.homeModules; [
       matugen

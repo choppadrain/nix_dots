@@ -6,13 +6,12 @@
 {
   flake.modules.homeManager.starship =
     {
-      wlib,
+      pkgs,
       ...
     }:
     {
-      imports = [ wlib.wrapperModules.starship ];
-
-      config = {
+      home.packages = [ inputs.wrappers.lib.wrapPackage {
+        inherit pkgs;
         settings = {
           add_newline = true;
           right_format = "$time";
@@ -27,7 +26,7 @@
 
           directory = {
             format = "[$path](style)";
-            truncation_length = 2;
+            truncation_length = 4;
             truncation_symbol = "../";
 
           };
@@ -65,16 +64,9 @@
             format = "via [☃️ $state(\($name\))](bold blue) ";
           };
 
-        };
       };
-    };
+      }];
 
-  perSystem =
-    { pkgs, ... }:
-    {
-      packages.starship = inputs.wrappers.lib.wrapPackage {
-        inherit pkgs;
-        imports = [ self.modules.homeManager.starship ];
-      };
+
     };
 }

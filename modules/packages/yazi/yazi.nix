@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.modules.home.yazi =
+  flake.modules.homeManager.yazi =
     {
       lib,
       wlib,
@@ -16,8 +16,8 @@
         default = "";
         description = "init.lua contents";
       };
-
       config = {
+        package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         constructFiles.initLua = {
           content = config.initLua;
@@ -31,8 +31,8 @@
           }
 
           require("starship"):setup()
-
           require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
+
         '';
 
         settings = {
@@ -42,7 +42,10 @@
           with pkgs.yaziPlugins;
           {
             full-border = full-border;
-            relative-motions = relative-motions;
+            # relative-motions = relative-motions;
+            # add to initLua
+            #require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
+
             git = git;
             jump-to-char = jump-to-char;
             clipboard = clipboard;
@@ -51,6 +54,7 @@
           }
           // {
             fuzzy-search = inputs.fuzzy-search;
+            relative-motions = inputs.relative-motions;
           }
         );
       };
@@ -60,7 +64,7 @@
     { pkgs, ... }:
     {
       packages.yazi = inputs.wrappers.wrappers.yazi.wrap {
-        imports = [ self.modules.home.yazi ];
+        imports = [ self.modules.homeManager.yazi ];
         inherit pkgs;
       };
     };
