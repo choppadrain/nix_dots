@@ -11,12 +11,13 @@
         enableGitIntegration = true;
         enable = true;
         extraConfig = ''
+        
           include kitty-colors.conf
         '';
         settings = {
           font_family = "SFMono Semi Bold Nerd";
           confirm_os_window_close = 0;
-          transparency = "0.9";
+          transparency = "1.0";
           enable_audio_bell = "none";
           cursor_trail = "1";
           cursor_trail_decay = "0.075 0.175";

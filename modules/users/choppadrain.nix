@@ -9,7 +9,6 @@ in
       users.users."${username}" = {
         isNormalUser = true;
         shell = inputs.self.packages.${pkgs.system}.zsh;
-        # shell = pkgs.nushell;
         extraGroups = [
           "networkmanager"
           "wheel"

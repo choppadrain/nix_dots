@@ -10,9 +10,8 @@
     modules =
       with self.modules.nixos;
       [
-        base16test
+        # base16test
         vm
-        base16
         choppadrain
         niri
         fonts
@@ -83,6 +82,7 @@
         zathura
         anki
         gamemode
+        apple-cursor
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship

@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, scheme,  ... }:
     let
       swayPatched = pkgs.sway-unwrapped.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [
@@ -61,10 +61,11 @@
             };
 
             extraConfig = ''
-                  ${red}
-                  client.focused_inactive #2d5a27 #051405 #a3be8c #2d5a27     #2d5a27
-                  client.unfocused        #132a13 #051405 #4f772d #132a13     #132a13
-                  client.urgent           #6a040f #6a040f #ffffff #FF00FF     #6a040f
+
+                ${scheme.base00}
+              client.focused_inactive #2d5a27 #051405 #a3be8c #2d5a27     #2d5a27
+              client.unfocused        #132a13 #051405 #4f772d #132a13     #132a13
+              client.urgent           #6a040f #6a040f #ffffff #FF00FF     #6a040f
             '';
 
             settings = builtins.readFile ./config.in;

@@ -42,10 +42,7 @@
           with pkgs.yaziPlugins;
           {
             full-border = full-border;
-            # relative-motions = relative-motions;
-            # add to initLua
-            #require("relative-motions"):setup({ show_numbers="relative", show_motion = true, only_motions = true, enter_mode ="first" })
-
+            
             git = git;
             jump-to-char = jump-to-char;
             clipboard = clipboard;

@@ -11,11 +11,25 @@
         enableDefaultPackages = true;
         packages = [
           pkgs.corefonts
+          pkgs.lucide
+          pkgs.font-awesome_6
           inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd
           inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
           inputs.apple-fonts.packages.${pkgs.system}.ny-nerd
         ];
+
         fontconfig = {
+          enable = true;
+ antialias = true;
+          hinting = {
+            enable = true;
+            style = "full";
+            autohint = false;
+          };
+          subpixel = {
+            rgba = "rgb";
+            lcdfilter = "light";
+          };
           defaultFonts = {
             serif = [
               "NewYork Nerd Font"
