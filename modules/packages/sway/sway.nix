@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   perSystem =
-    { pkgs, scheme,  ... }:
+    { pkgs, scheme, ... }:
     let
       swayPatched = pkgs.sway-unwrapped.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [
@@ -44,7 +44,6 @@
               xdg-desktop-portal
               xdg-desktop-portal-gtk
               xdg-desktop-portal-wlr
-              xdg-desktop-portal-gnome
               wl-clipboard
               mako
               gamescope
@@ -58,14 +57,14 @@
               XDG_SESSION_TYPE = "wayland";
               XDG_CURRENT_DESKTOP = "sway";
               SDL_VIDEODRIVER = "wayland";
+
             };
 
             extraConfig = ''
-
-                ${scheme.base00}
-              client.focused_inactive #2d5a27 #051405 #a3be8c #2d5a27     #2d5a27
-              client.unfocused        #132a13 #051405 #4f772d #132a13     #132a13
-              client.urgent           #6a040f #6a040f #ffffff #FF00FF     #6a040f
+              client.focused          ${scheme.base08} ${scheme.base08} ${scheme.base05} ${scheme.base0D} ${scheme.base08}
+              client.focused_inactive ${scheme.base01} ${scheme.base01} ${scheme.base05} ${scheme.base03} ${scheme.base01}
+              client.unfocused        ${scheme.base00} ${scheme.base00} ${scheme.base04} ${scheme.base01} ${scheme.base00}
+              client.urgent           ${scheme.base08} ${scheme.base08} ${scheme.base05} ${scheme.base08} ${scheme.base08}
             '';
 
             settings = builtins.readFile ./config.in;

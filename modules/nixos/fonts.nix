@@ -20,7 +20,7 @@
 
         fontconfig = {
           enable = true;
- antialias = true;
+          antialias = true;
           hinting = {
             enable = true;
             style = "full";

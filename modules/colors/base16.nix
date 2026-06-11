@@ -1,14 +1,14 @@
 { inputs, ... }:
 let
-    scheme = {
+  scheme = {
     slug = "vague";
     scheme = "Vague";
     author = "mollypostmark";
 
     # Backgrounds
-    base00 = "#252530"; # Default background
+    base00 = "#141415"; # Default background
     base01 = "#1c1c24"; # Lighter background
-    base02 = "#333738"; # Selection background
+    base02 = "#252530"; # Selection background
     base03 = "#606079"; # Comments, invisibles
 
     # Foregrounds
@@ -30,13 +30,13 @@ let
     # Extended
     base10 = "#141415"; # Darker background
     base11 = "#1c1c24"; # Darkest background
-    base12 = "#333738"; # Bright red
-    base13 = "#878787"; # Bright yellow
-    base14 = "#e8b589"; # Bright green
-    base15 = "#e0a363"; # Bright cyan
-    base16 = "#c48282"; # Bright blue
-    base17 = "#405065"; # Bright magenta
-};
+    base12 = "#e08398"; # Bright red
+    base13 = "#f5cb96"; # Bright yellow
+    base14 = "#99b782"; # Bright green
+    base15 = "#bebeda"; # Bright cyan
+    base16 = "#8ba9c1"; # Bright blue
+    base17 = "#c9b1ca"; # Bright magenta
+  };
 in
 {
 
@@ -52,12 +52,16 @@ in
       };
     };
 
-  flake.modules.nixos.default = {
+  flake.modules.nixos.base = {
     imports = [ inputs.base16.nixosModule ];
 
     _module.args = {
       inherit scheme;
     };
   };
+  flake.modules.homeManager.base16 = {
+    _module.args = {
+      inherit scheme;
+    };
+  };
 }
-

@@ -13,14 +13,16 @@ set $mod Mod4
 
               input type:keyboard {
                     xkb_layout us,ru
-                    xkb_options grp:alt_shift_toggle
+                    xkb_options grp:win_space_toggle
               }  
-              input type:mouse {
+
+              input type:pointer {
                 accel_profile "flat"
+                pointer_accel 0.0
               }
 
 
-                  bindsym $mod+p exec $term
+                  bindsym $mod+Return exec $term
 
                   bindsym $mod+q kill
 
@@ -138,12 +140,8 @@ set $mod Mod4
               bindsym $mod+Alt+v exec cliphist-fuzzel-img
               bindsym $mod+g exec wl-kbptr
 
-              seat seat0 xcursor_theme miniature 64
+              # seat seat0 xcursor_theme miniature 64
 
-              client.focused          #b3ff00 #b3ff00 #051405 #FF00FF     #b3ff00
-              client.focused_inactive #2d5a27 #051405 #a3be8c #2d5a27     #2d5a27
-              client.unfocused        #132a13 #051405 #4f772d #132a13     #132a13
-              client.urgent           #6a040f #6a040f #ffffff #FF00FF     #6a040f
 
               for_window [app_id="^.*"] border pixel 4
               for_window [class="^.*"] border pixel 4
@@ -158,5 +156,3 @@ set $mod Mod4
               exec awww-daemon
 
 
-
-              #include /etc/sway/config.d/*

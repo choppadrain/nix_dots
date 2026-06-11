@@ -2,6 +2,7 @@
 {
   inputs,
   self,
+  scheme,
   ...
 }:
 {
@@ -10,8 +11,8 @@
     modules =
       with self.modules.nixos;
       [
-        # base16test
         vm
+        desktop
         choppadrain
         niri
         fonts
@@ -30,6 +31,7 @@
         {
           home-manager.users.choppadrain = {
             imports = with self.modules.homeManager; [
+              base16
             ];
             home.stateVersion = "25.05";
             home.sessionVariables = {
@@ -57,8 +59,28 @@
         VISUAL = "nvim";
       };
 
-      xdg.portal.enable = true;
-      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      xdg.portal = {
+        enable = true;
+        wlr.enable = true;
+
+          wlr.settings.screencast = {
+            chooser_type = "simple";
+            chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+          };
+        config = {
+          # common = {
+          #   default = [
+          #     "wlr"
+          #     "gtk"
+          #   ];
+          # };
+
+        };
+      };
+      xdg.portal.extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-wlr
+      ];
 
       networking.hostName = "nixos"; # Define your hostname.
 
@@ -86,7 +108,7 @@
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
-        inputs.self.packages.${pkgs.system}.sway
+        # inputs.self.packages.${pkgs.system}.sway
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };

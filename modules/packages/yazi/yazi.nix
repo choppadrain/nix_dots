@@ -18,7 +18,9 @@
       };
       config = {
         package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
+        runtimePkgs = with pkgs; [
+          ripgrep
+        ];
         constructFiles.initLua = {
           content = config.initLua;
           relPath = "${config.binName}-config/init.lua";
@@ -42,7 +44,7 @@
           with pkgs.yaziPlugins;
           {
             full-border = full-border;
-            
+
             git = git;
             jump-to-char = jump-to-char;
             clipboard = clipboard;

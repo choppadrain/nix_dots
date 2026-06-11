@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.homeModules.niri =
-    { osConfig, ... }:
+    { ... }:
     {
       programs.niri.settings = {
         layout = {
@@ -10,7 +10,7 @@
           };
           border = {
             width = 4;
-            active = with osConfig.scheme.withHashtag; [ red ];
+            active = 4;
           };
         };
       };

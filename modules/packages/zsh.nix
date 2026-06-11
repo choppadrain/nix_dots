@@ -91,9 +91,7 @@
 
           zinit ice wait"0" lucid nocompile atload""
           zinit ice compile'**/*.zsh'
-          #
-          #
-          #
+
 
           # END_TIME=$EPOCHREALTIME
           # STARTUP_DURATION=$(( (END_TIME - START_TIME) * 1000 ))
