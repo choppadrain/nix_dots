@@ -28,6 +28,7 @@
         wofi
         grim
         slurp
+        awww
 
       ];
     };
@@ -36,7 +37,7 @@
       configType = "lua";
       xwayland.enable = true;
 
-      # plugins = [ inputs.hy3.packages.x86_64-linux.hy3 ];
+      plugins = with pkgs; [ hyprlandPlugins.hy3 ];
 
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage =

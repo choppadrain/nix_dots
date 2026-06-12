@@ -15,7 +15,7 @@
 
           settings = {
             main = {
-              layer = "top";
+              layer = "bottom";
               position = "bottom";
               exclusive = true;
               width = 9;
@@ -26,7 +26,7 @@
               modules-left = [ "hyprland/workspaces" ];
               modules-center = [ ];
               modules-right = [
-                "cpu" 
+                "cpu"
                 "memory"
                 "network"
                 "clock"
