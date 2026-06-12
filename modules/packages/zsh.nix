@@ -15,6 +15,7 @@
           bat
           fd
           zoxide
+          eza
         ];
 
         zshrc.content = ''

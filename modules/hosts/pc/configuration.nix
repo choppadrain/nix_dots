@@ -1,8 +1,6 @@
-#default.nix
 {
   inputs,
   self,
-  scheme,
   ...
 }:
 {
@@ -58,21 +56,21 @@
 
       xdg.portal = {
         enable = true;
-        wlr.enable = true;
-
-        wlr.settings.screencast = {
-          chooser_type = "simple";
-          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-        };
-        config = {
-          # common = {
-          #   default = [
-          #     "wlr"
-          #     "gtk"
-          #   ];
-          # };
-
-        };
+      #   wlr.enable = true;
+      #
+      #   wlr.settings.screencast = {
+      #     chooser_type = "simple";
+      #     chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      #   };
+      #   config = {
+      #     # common = {
+      #     #   default = [
+      #     #     "wlr"
+      #     #     "gtk"
+      #     #   ];
+      #     # };
+      #
+      #   };
       };
       xdg.portal.extraPortals = [
         pkgs.xdg-desktop-portal-gtk
@@ -101,11 +99,9 @@
         zathura
         anki
         gamemode
-        apple-cursor
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship
-        # inputs.self.packages.${pkgs.system}.sway
       ];
       system.stateVersion = "25.05"; # Did you read the comment?
     };
