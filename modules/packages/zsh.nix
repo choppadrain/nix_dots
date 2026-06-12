@@ -3,7 +3,6 @@
   flake.modules.homeManager.zsh =
     {
       wlib,
-      lib,
       pkgs,
       ...
     }:
@@ -99,6 +98,7 @@
         '';
       };
     };
+
   perSystem =
     {
       pkgs,

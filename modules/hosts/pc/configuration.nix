@@ -14,16 +14,13 @@
         vm
         desktop
         choppadrain
-        niri
         fonts
         homeManager
         nixos
         amdgpu
-        waybar
         base
         themeSwitcher
         utils
-        kitty
         tmux
         zen_kernel
       ]
@@ -63,10 +60,10 @@
         enable = true;
         wlr.enable = true;
 
-          wlr.settings.screencast = {
-            chooser_type = "simple";
-            chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-          };
+        wlr.settings.screencast = {
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
         config = {
           # common = {
           #   default = [

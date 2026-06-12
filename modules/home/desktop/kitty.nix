@@ -1,68 +1,66 @@
 { self, ... }:
 {
-  flake.modules.nixos.kitty = {
+  flake.modules.nixos.desktop = {
     home-manager.sharedModules = [
       self.modules.homeManager.kitty
     ];
   };
-  flake.modules.homeManager.kitty = { scheme, ... }: {
-    programs = {
-      kitty = {
-        enableGitIntegration = true;
-        enable = true;
-        extraConfig = ''
-          # vim:ft=kitty
-          ## name:     Vague
-          ## author:   Artem Krinitsyn <arkriny@gmail.com>
-          ## license:  MIT
-          ## upstream: https://github.com/vague-theme/vague-kitty/blob/main/vague.conf
-          ## blurb:    A cool, dark, low contrast colorscheme. Pastel yet vivid, like a fleeting memory...
+  flake.modules.homeManager.kitty =
+    { scheme, ... }:
+    let
+      s = scheme;
+    in
+    {
+      programs = {
+        kitty = {
+          enableGitIntegration = true;
+          enable = true;
+          extraConfig = ''
+            foreground               ${s.base05}
+            background               ${s.base00}
+            selection_foreground     ${s.base05}
 
-          foreground               #cdcdcd
-          background               #141415
-          selection_foreground     #cdcdcd
-          selection_background     #252530
-          cursor                   none
-          url_color                #bb9dbd
+            selection_background     ${s.base02}
+            cursor                   none
+            url_color                ${s.base0E}
 
-          active_border_color #878787
-          inactive_border_color #252530
+            active_border_color ${s.base04}
+            inactive_border_color ${s.base02}
 
-          color0   #252530
-          color8   #606079
-          color1   #d8647e
-          color9   #e08398
-          color2   #7fa563
-          color10  #99b782
-          color3   #f3be7c
-          color11  #f5cb96
-          color4   #6e94b2
-          color12  #8ba9c1
-          color5   #bb9dbd
-          color13  #c9b1ca
-          color6   #aeaed1
-          color14  #bebeda
-          color7   #cdcdcd
-          color15  #d7d7d7
+            color0   ${s.base02}
+            color8   ${s.base03}
+            color1   ${s.base08}
+            color9   ${s.base09}
+            color2   ${s.base0B}
+            color10  ${s.base0C}
+            color3   ${s.base0A}
+            color11  ${s.base13}
+            color4   ${s.base0D}
+            color12  ${s.base16}
+            color5   ${s.base0E}
+            color13  ${s.base0F}
+            color6   ${s.base06}
+            color14  ${s.base15}
+            color7   ${s.base05}
+            color15  ${s.base07}
 
-          active_tab_foreground    #cdcdcd
-          active_tab_background    #252530
-          inactive_tab_foreground  #606079
-          inactive_tab_background  #141415
-                     # include kitty-colors.conf
-        '';
-        settings = {
-          font_family = "SFMono Semi Bold Nerd";
-          confirm_os_window_close = 0;
-          transparency = "1.0";
-          enable_audio_bell = "none";
-          cursor_trail = "1";
-          cursor_trail_decay = "0.075 0.175";
-          cursor_trail_start_threshold = "0";
-          disable_ligatures = "never";
-          hide_window_decorations = "no";
+            active_tab_foreground    ${s.base05}
+            active_tab_background    ${s.base02}
+            inactive_tab_foreground  ${s.base03}
+            inactive_tab_background  ${s.base00}
+          '';
+          settings = {
+            font_family = "SFMono Semi Bold Nerd";
+            confirm_os_window_close = 0;
+            transparency = "1.0";
+            enable_audio_bell = "none";
+            cursor_trail = "1";
+            cursor_trail_decay = "0.075 0.175";
+            cursor_trail_start_threshold = "0";
+            disable_ligatures = "never";
+            hide_window_decorations = "no";
+          };
         };
       };
     };
-  };
 }

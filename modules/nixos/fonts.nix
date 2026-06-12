@@ -30,6 +30,7 @@
             rgba = "rgb";
             lcdfilter = "light";
           };
+
           defaultFonts = {
             serif = [
               "NewYork Nerd Font"

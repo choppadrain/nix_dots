@@ -17,14 +17,15 @@
     };
 
     hyprland = {
-        url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland?submodules=1";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake/849983db4074cdd35f0b9afe71b799d8a049e727";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
     };
-#yazi stuff
+
+    #yazi stuff
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +40,7 @@
       url = "github:onelocked/fuzzy-search.yazi";
       flake = false;
     };
-#=======================
+    #=======================
     helium = {
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
