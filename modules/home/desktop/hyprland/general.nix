@@ -46,7 +46,7 @@
                         rounding_power = 0,
 
                         active_opacity   = 1.0,
-                        inactive_opacity = 0.97,
+                        inactive_opacity = 0.96,
 
                         shadow = {
                             enabled      = false,

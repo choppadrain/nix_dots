@@ -2,9 +2,9 @@ local g = vim.g
 local o = vim.opt
 
 o.swapfile = true
-o.termguicolors = true
+-- o.termguicolors = true
 o.smartcase = true
-g.mapleader = " "
+-- g.mapleader = "'"
 o.laststatus = 3
 o.hlsearch = true
 o.incsearch = true

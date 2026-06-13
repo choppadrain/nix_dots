@@ -65,7 +65,7 @@
           };
           style = ''
                             #language {
-                      min-width: 65px;
+                      min-width: 90px;
                       margin-right: 15px;
                     }
 

@@ -11,8 +11,9 @@
       imports = [ wlib.wrapperModules.neovim ];
 
       config = {
-        # package = pkgs.neovim;
         specs.general = with pkgs.vimPlugins; [
+          lz-n
+          nvim-lspconfig
           #completions
           nvim-web-devicons
           indent-blankline-nvim
@@ -31,6 +32,13 @@
           vague-nvim
         ];
 
+        specs.lazyPlugins = with pkgs.vimPlugins; [
+            gitsigns-nvim
+            nvim-autopairs
+            mini-files
+            
+        ];
+
         runtimePkgs = with pkgs; [
           #language servers
           lua-language-server
@@ -38,6 +46,7 @@
           nixd
           tinymist
         ];
+
         settings.config_directory = ./.;
 
         specs.initLua = {
