@@ -14,9 +14,10 @@
         specs.general = with pkgs.vimPlugins; [
           lz-n
           nvim-lspconfig
+          snacks-nvim
+          blink-ripgrep-nvim
           #completions
           nvim-web-devicons
-          indent-blankline-nvim
 
           nvim-treesitter.withAllGrammars
           nvim-lspconfig
