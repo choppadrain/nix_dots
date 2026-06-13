@@ -22,13 +22,13 @@
               margin-top = 0;
               margin-bottom = 0;
               margin-left = 0;
-              spacing = 30;
+              spacing = 0;
               modules-left = [ "hyprland/workspaces" ];
               modules-center = [ ];
               modules-right = [
+                "custom/language"
                 "cpu"
                 "memory"
-                "network"
                 "clock"
                 "tray"
               ];
@@ -43,30 +43,18 @@
                 interval = 2;
               };
 
-              network = {
-                format-wifi = "{bandwidthDownBytes} :: ";
-                format-ethernet = "network{bandwidthDownBytes}:: ";
-                format-disconnected = "0";
-                interval = 2;
-              };
-
               "hyprland/workspaces" = {
-                format = "{icon}";
-                format-icons = {
-                  active = "!";
-                  default = "-";
-                };
+                format = "{name}";
               };
-
-              "hyprland/language" = {
-                format = " {} ::";
-                format-ru = "RU";
-                format-en = "US";
-              };
-
               clock = {
-                format = "{date :%d.%m.%Y} ::";
+                format = "{:%d.%m.%Y ::  %H:%M} ::";
                 tooltip-format = "<tt><small>{calendar}</small></tt>";
+              };
+
+              "custom/language" = {
+                exec = "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap' | sed -e 's/English (US)/us/' -e 's/Russian/ru/'";
+                interval = 1;
+                format = "lang {} ::";
               };
 
               tray = {
@@ -76,25 +64,64 @@
             };
           };
           style = ''
-            * {
-             padding: 0.1rem;
-             font-size: 11.5px;
-                    font-family: "SFMono Nerd Font Bold";
-                    color: white;
-            }
-                   window#waybar {
-                     background-color: ${scheme.base00};
-            }
-                    #workspaces button {
-                        min-height: 0; 
-                        min-width: 0;  
-                        padding: 0 8px; 
-                       color: #a6adc8;
-                        background: transparent;
-                        border: none;
-                        border-radius: 0;
-                        box-shadow: none;
-                        text-shadow: none;
+                            #language {
+                      min-width: 65px;
+                      margin-right: 15px;
+                    }
+
+                    #cpu {
+                      min-width: 55px;
+                      margin-right: 15px;
+                    }
+
+                    #memory {
+                      min-width: 55px;
+                      margin-right: 15px;
+                    }
+
+            #workspaces {
+                      min-width: 140px;
+                    }
+
+                    #clock {
+                      min-width: 90px;
+                      margin-right: 15px;
+                    }
+                        * {
+                         padding: 0.1rem;
+                         font-size: 12.5px;
+                                font-family: "SFMono Nerd Font Bold";
+                                color: ${scheme.base05};
+                        }
+                               window#waybar {
+                                 background-color: ${scheme.base00};
+                        }
+                                #workspaces button {
+                                    min-height: 0; 
+                                    min-width: 0;  
+                                    padding: 0 8px; 
+                                   color: #a6adc8;
+                                    background: transparent;
+                                    border: none;
+                                    border-radius: 0;
+                                    box-shadow: none;
+                                    text-shadow: none;
+                                }
+            #workspaces button.active {
+                      background-color: ${scheme.base02}; 
+                      color: #ffffff;
+                    }
+                        #tray {
+                            background-color: ${scheme.base00};
+                            padding: 0 6px;
+                    }
+            #tray menu menuitem {
+                      color: ${scheme.base00};
+                      padding: 4px 8px;
+                    }
+
+                    #tray menu menuitem:hover {
+                      background: ${scheme.base03};
                     }
 
 
