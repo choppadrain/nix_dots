@@ -28,6 +28,8 @@
           SAVEHIST=10000
 
           export KEYTIMEOUT=1
+            
+
 
 
           export ZSH_CACHE_DIR=~/.cache/zsh

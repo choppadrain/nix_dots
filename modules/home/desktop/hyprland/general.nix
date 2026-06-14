@@ -21,7 +21,31 @@
                    hl.exec_cmd("waybar & awww-daemon ")
                  end)
 
+                    hl.plugin = {
+                        hy3 = {
+                            node_collapse_policy = 2,
+                            group_inset = 10,
+                            from_top = false,
+                            radius = 6,
+                            border_width = 2,
+                            render_text = true,
+                            center_text = true,
+                            text_font = "SFMono Nerd Font Semibold",
 
+                            colors = {
+                                active = "${scheme.base0F}",
+                                active_border = "${scheme.base17}",
+                                active_text = "${scheme.base04}",
+
+                                
+                            },
+
+    
+        
+            
+                        },
+                        
+                    },
                 hl.config({
                     general = {
                         gaps_in  = 5,
@@ -40,6 +64,8 @@
 
                         layout = "dwindle",
                         },
+
+
 
                     decoration = {
                         rounding       = 10,

@@ -25,7 +25,6 @@
           fzf-lua
           luasnip
           blink-cmp
-          friendly-snippets
 
           undotree
 

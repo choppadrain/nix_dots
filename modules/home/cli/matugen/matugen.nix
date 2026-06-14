@@ -34,22 +34,13 @@
           input_path = '${templatePath}/gtk-colors.css'
           output_path = '~/.config/gtk-4.0/gtk-colors.css'
 
-          [templates.kitty]
-          input_path = "${templatePath}/kitty-colors.conf"
-          output_path = "~/.config/kitty/kitty-colors.conf"
-          post_hook = "pkill -USR1 kitty"
 
           [templates.vesktop]
           input_path = '${templatePath}/midnight-discord.css'
           output_path = '~/.config/vesktop/themes/midnight-discord.css'
 
-          [templates.telegram]
-          input_path = "${templatePath}/Matugen.tdesktop-theme"
-          output_path = "~/.local/share/TelegramDesktop/tdata/themes/Matugen.tdesktop-theme"
 
-          [templates.old-telegram]
-          input_path = "${templatePath}/old-telegram.tdesktop-theme"
-          output_path = "~/.local/share/TelegramDesktop/tdata/themes/telegram.tdesktop-theme"
+
 
 
 
