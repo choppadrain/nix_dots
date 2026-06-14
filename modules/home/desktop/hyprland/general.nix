@@ -3,6 +3,7 @@
     wayland.windowManager.hyprland.extraLuaFiles."general" = {
       autoLoad = true;
       content = ''
+
                 hl.monitor({
                 output   = "DP-2",
                 mode     = "1920x1080@143.98Hz",

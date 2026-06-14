@@ -45,6 +45,9 @@
           gopls
           nixd
           tinymist
+
+          #formatters
+          stylua
         ];
 
         settings.config_directory = ./.;

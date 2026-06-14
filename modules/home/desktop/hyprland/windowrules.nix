@@ -3,6 +3,13 @@
     wayland.windowManager.hyprland.extraLuaFiles."windowrules" = {
       autoLoad = true;
       content = ''
+local suppressMaximizeRule = hl.window_rule({
+    -- Ignore maximize requests from all apps. You'll probably like this.
+    name  = "suppress-maximize-events",
+    match = { class = ".*" },
+
+    suppress_event = "maximize",
+})
                 hl.window_rule({
             -- Fix some dragging issues with XWayland
             name  = "fix-xwayland-drags",
