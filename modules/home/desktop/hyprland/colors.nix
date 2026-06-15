@@ -5,30 +5,25 @@
       content = ''
 
         hy3 = hl.plugin.hy3
-
                        hl.config({
                           plugin = {
                               hy3 = {
-                                node_collapse_policy = 2,
-                              tabs = {
-                                  render_text = true,
-
-                                  text_font = "Sans",
-                                  from_top = true,
-                                },
-                              --    colors = {
-                              --        active = "",
-                              --        active_text = "",
-                              --       active_border = "",
+                                tabs = {
+                                  colors = {
+                                       active = "${scheme.base17}",
+                                       active_text = "${scheme.base05}",
+                                       active_border = "${scheme.base09}",
 
                               --        urgent = "",
-                              --        urgent_text = "",
+                                      urgent_text = "${scheme.base05}",
                               --        urgent_border = "",
 
                               --        inactive = "",
-                              --        inactive_text = "",
+                              --        inactive_text = "${scheme.base05}",
                               --        inactive_border = "",
-                              --    },
+                                  },
+
+                                },
                               },
                           },
                             general = {
