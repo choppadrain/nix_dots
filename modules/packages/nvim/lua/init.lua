@@ -1,4 +1,5 @@
 require('config.opts')
+require('config.keymaps')
 require('config.colorscheme')
 require('config.diagnostics')
 require ('lz.n').load('plugins')

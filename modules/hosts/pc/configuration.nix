@@ -99,6 +99,7 @@
         zathura
         anki
         gamemode
+        go
         inputs.self.packages.${pkgs.system}.yazi
         inputs.self.packages.${pkgs.system}.zsh
         inputs.self.packages.${pkgs.system}.starship

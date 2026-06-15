@@ -27,16 +27,17 @@
           blink-cmp
 
           undotree
+          conform-nvim
 
           #colorscheme
           vague-nvim
         ];
 
         specs.lazyPlugins = with pkgs.vimPlugins; [
-            gitsigns-nvim
-            nvim-autopairs
-            mini-files
-            
+          gitsigns-nvim
+          nvim-autopairs
+          mini-files
+
         ];
 
         runtimePkgs = with pkgs; [
@@ -48,6 +49,8 @@
 
           #formatters
           stylua
+          gofumpt
+          nixfmt
         ];
 
         settings.config_directory = ./.;
