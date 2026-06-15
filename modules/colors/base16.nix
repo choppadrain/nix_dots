@@ -59,6 +59,7 @@ in
       inherit scheme;
     };
   };
+
   flake.modules.homeManager.base16 = {
     _module.args = {
       inherit scheme;

@@ -72,8 +72,6 @@
           zinit ice wait"0b" lucid atinit'eval "$(zoxide init zsh)"'
           zinit light zdharma-continuum/null
 
-
-
           zinit ice as"completion" id-as"nix-completions" blockf
           zinit light ${pkgs.nix-zsh-completions}/share/zsh/site-functions
 

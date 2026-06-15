@@ -13,18 +13,16 @@
       config = {
         specs.general = with pkgs.vimPlugins; [
           lz-n
-          nvim-lspconfig
           snacks-nvim
-          blink-ripgrep-nvim
           #completions
-          nvim-web-devicons
-
-          nvim-treesitter.withAllGrammars
-          nvim-lspconfig
 
           fzf-lua
           luasnip
+
           blink-cmp
+          blink-ripgrep-nvim
+          nvim-treesitter.withAllGrammars
+          nvim-lspconfig
 
           undotree
           conform-nvim
@@ -36,7 +34,8 @@
         specs.lazyPlugins = with pkgs.vimPlugins; [
           gitsigns-nvim
           nvim-autopairs
-          mini-files
+          lualine-nvim
+          nvim-web-devicons
 
         ];
 

@@ -103,5 +103,5 @@ hl.bind(mainMod .. " + K", hy3.move_focus("u"))
 hl.bind(mainMod .. " + J", hy3.move_focus("d"))
 
 --horizon shi
-hl.bind(mainMod .. " + i", hy3.make_group("h"))
-hl.bind(mainMod .. " + o", hy3.make_group("v"))
+hl.bind(mainMod .. " + u", hy3.make_group("h"))
+hl.bind(mainMod .. " + i", hy3.make_group("v"))
