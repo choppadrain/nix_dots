@@ -1,15 +1,14 @@
 return {
-    "nvim-treesitter",
-    lazy = false,
+	"nvim-treesitter",
+	lazy = false,
 
-    after = function ()
-        require('nvim-treesitter').setup ({
-                highlight  = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-
-                },
-                indent = { enable = true, },
-        })
-    end,
+	after = function()
+		require("nvim-treesitter").setup({
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = true,
+			},
+			indent = { enable = true },
+		})
+	end,
 }

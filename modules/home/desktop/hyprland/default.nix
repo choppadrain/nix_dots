@@ -43,6 +43,25 @@
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
+      extraLuaFiles = {
+        "keybinds" = {
+          content = builtins.readFile ./keybinds.lua;
+          autoLoad = true;
+        };
+
+        "windowrules" = {
+          content = builtins.readFile ./windowrules.lua;
+          autoLoad = true;
+        };
+        "hy3" = {
+          content = builtins.readFile ./hy3.lua;
+          autoLoad = true;
+        };
+        "general" = {
+          content = builtins.readFile ./general.lua;
+          autoLoad = true;
+        };
+      };
     };
   };
 }

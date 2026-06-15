@@ -1,5 +1,3 @@
-require("vague").setup({
-  -- optional configuration here
-})
+require("vague").setup({})
 
 vim.cmd("colorscheme vague")
