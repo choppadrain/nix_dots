@@ -262,11 +262,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780054154,
-        "narHash": "sha256-VbHwck8XGyZ77uHfY9adqE0qrilRshWUdFwB6etEIt4=",
+        "lastModified": 1781264587,
+        "narHash": "sha256-SoILyWu6VcW2XApd1h3GnaM5iTL3WtF7Llx5OpWYk9g=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
-        "rev": "47e435ce0b81c012683bd2b1a4101285e1f46183",
+        "rev": "4da5eba67ece1400e61a2500b85fc02df9497497",
         "type": "github"
       },
       "original": {
@@ -412,16 +412,16 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1778712946,
-        "narHash": "sha256-Dn4NCfBRCZ6PW/8C7grx9HyVb8WC8YNRCkRMMa5xRhQ=",
+        "lastModified": 1778936359,
+        "narHash": "sha256-ZuZ9nfmb1Oh3qOPfrQ0zeTBRuMS0DqYTkKiuG9x06CQ=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "a47147bc095e5b3be3eb8bd04f0ac242b968cd4d",
+        "rev": "39d7e209c79d451efab1b21151d5938289da838d",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
-        "ref": "v0.55.1",
+        "ref": "v0.55.2",
         "repo": "Hyprland",
         "type": "github"
       }

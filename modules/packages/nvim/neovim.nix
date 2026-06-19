@@ -43,6 +43,7 @@
           #language servers
           lua-language-server
           gopls
+
           nixd
           tinymist
 

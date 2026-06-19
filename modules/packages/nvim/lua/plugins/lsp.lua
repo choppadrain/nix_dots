@@ -28,11 +28,7 @@ return {
 				formatterMode = "typstyle",
 			},
 		}
-
-		--nix
-		vim.lsp.config("nixd", {})
-
-		--go
+		-- go
 		vim.lsp.config["gopls"] = {
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -45,6 +41,9 @@ return {
 				},
 			},
 		}
+
+		--nix
+		vim.lsp.config("nixd", {})
 
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("tinymist")
