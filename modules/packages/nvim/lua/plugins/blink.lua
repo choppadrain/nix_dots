@@ -3,7 +3,11 @@ return {
 	lazy = false,
 	after = function()
 		require("blink.cmp").setup({
-			keymap = { preset = "default" },
+			keymap = {
+				preset = "default",
+				["<Tab>"] = { "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
+			},
 			appearance = { nerd_font_variant = "mono" },
 			signature = { enabled = true },
 			completion = {

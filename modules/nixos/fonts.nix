@@ -20,16 +20,16 @@
 
         fontconfig = {
           enable = true;
-          antialias = true;
-          hinting = {
-            enable = true;
-            style = "full";
-            autohint = false;
-          };
-          subpixel = {
-            rgba = "rgb";
-            lcdfilter = "light";
-          };
+          # antialias = true;
+          # hinting = {
+          #   enable = true;
+          #   style = "full";
+          #   autohint = false;
+          # };
+          # subpixel = {
+          #   rgba = "rgb";
+          #   lcdfilter = "light";
+          # };
 
           defaultFonts = {
             serif = [

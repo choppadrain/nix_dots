@@ -29,8 +29,11 @@
         grim
         slurp
         awww
-
+        wireplumber
+        qt6Packages.qt6ct
+        libsForQt5.qt5ct
       ];
+
     };
     wayland.windowManager.hyprland = {
       enable = true;

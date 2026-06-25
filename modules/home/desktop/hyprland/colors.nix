@@ -10,16 +10,16 @@
                               hy3 = {
                                 tabs = {
                                   colors = {
-                                       active = "${scheme.base01}",
-                                       active_text = "${scheme.base05}",
+                                       active = "${scheme.base02}",
+                                       active_text = "${scheme.base06}",
                                        active_border = "${scheme.base17}",
 
-                              --        urgent = "",
+                                      urgent = "#ffffff",
                                       urgent_text = "${scheme.base05}",
-                              --        urgent_border = "",
+                                      urgent_border = "#ffffff",
 
                                       inactive = "${scheme.base00}",
-                                      inactive_text = "${scheme.base05}",
+                                      inactive_text = "${scheme.base04}",
                                      inactive_border = "${scheme.base01}",
                                   },
 
@@ -28,7 +28,7 @@
                           },
                             general = {
                                 col = {
-                                    active_border = "${scheme.base17}",
+                                    active_border = "${scheme.base02}",
                                     inactive_border = "${scheme.base00}",
                         },
                     },

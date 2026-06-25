@@ -42,8 +42,6 @@
 
                 }
 
-                # fuck nushell its currently does not work until i switch to zsh
-
                 {
                   on = "z";
                   run = "plugin fuzzy-search -- fd --TL=3";

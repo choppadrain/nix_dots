@@ -17,6 +17,20 @@ return {
 					total = 0,
 				},
 			},
+			input = { enabled = true },
+			picker = {
+				enabled = true,
+				matcher = {
+					fuzzy = true,
+					smartcase = true,
+					ignorecase = true,
+					sort_empty = false,
+					filename_bonus = true,
+					file_pos = true,
+					cwd_bonus = true,
+					history_bonus = true,
+				},
+			},
 		})
 	end,
 }

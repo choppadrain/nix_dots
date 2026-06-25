@@ -11,10 +11,10 @@ hl.config({
 				render_text = true,
 
 				from_top = true,
-				height = 20,
+				height = 25,
 				blur = false,
-				padding = 3,
-				border_width = 2,
+				padding = 0,
+				border_width = 0,
 				radius = 0,
 				text_padding = 6,
 				text_center = true,
@@ -23,7 +23,7 @@ hl.config({
 			},
 			autotile = {
 				enable = false,
-				ephemeral_groups = false,
+				ephemeral_groups = true,
 				trigger_width = 0,
 				trigger_height = 0,
 				workspaces = "all",

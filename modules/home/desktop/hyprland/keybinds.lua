@@ -4,6 +4,8 @@
 local terminal = "kitty"
 local menu = "wofi --show drun"
 
+local hy3 = hl.plugin.hy3
+
 local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -37,7 +39,7 @@ hl.bind(mainMod .. " + SHIFT + S", hy3.move_to_workspace("special:magic", { foll
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
---quick access terminal
+--quick term
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitten quick-access-terminal"))
 
 --screenshot
@@ -64,7 +66,6 @@ end)
 ---- HY3 PLUGIN -----
 ---------------------
 
-local hy3 = hl.plugin.hy3
 hl.bind(mainMod .. " + Q", hy3.kill_active())
 
 hl.bind(mainMod .. " + H", hy3.move_focus("l"))
