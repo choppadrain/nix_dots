@@ -10,6 +10,7 @@
       with self.modules.nixos;
       [
         vm
+        mangowc
         desktop
         choppadrain
         fonts
