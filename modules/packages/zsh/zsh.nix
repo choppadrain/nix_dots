@@ -30,8 +30,6 @@
           export KEYTIMEOUT=1
             
 
-
-
           export ZSH_CACHE_DIR=~/.cache/zsh
           mkdir -p $ZSH_CACHE_DIR
           ZVM_KEYTIMEOUT=0.01
@@ -59,7 +57,7 @@
           alias tree=" eza --tree --icons"
           alias find="fd"
           alias c="clear"
-
+          alias cd="z"
 
 
           #==============================================

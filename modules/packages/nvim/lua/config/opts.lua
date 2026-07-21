@@ -1,6 +1,7 @@
 local g = vim.g
 local o = vim.opt
 
+o.undofile = true
 o.swapfile = true
 o.termguicolors = true
 o.smartcase = true

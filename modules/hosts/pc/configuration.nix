@@ -10,7 +10,7 @@
       with self.modules.nixos;
       [
         vm
-        mangowc
+        # mangowc
         desktop
         choppadrain
         fonts
@@ -18,7 +18,6 @@
         nixos
         amdgpu
         base
-        themeSwitcher
         utils
         tmux
         zen_kernel

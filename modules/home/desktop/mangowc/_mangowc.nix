@@ -20,16 +20,15 @@
       awww
     ];
   };
-  flake.modules.homeManager.mangowc = { pkgs, scheme, ... }: {
-    home = {
-      pointerCursor = {
-        gtk.enable = true;
-        x11.enable = true;
-        package = pkgs.apple-cursor;
-        name = "macOS";
-        size = 21;
-      };
-
+  flake.modules.homeManager.mangowc =
+    {
+      pkgs,
+      scheme,
+      config,
+      themeNoHash,
+      ...
+    }:
+    {
       wayland.windowManager.mango = {
         enable = true;
         settings =
@@ -52,8 +51,8 @@
             animations = 0;
 
             #colors
-            bordercolor = "${s.base00}ff";
-            focuscolor = "${s.base02}ff";
+            bordercolor = "${themeNoHash.base09}ff";
+            # focuscolor = "${s.base02}ff";
 
             keymode = {
               common.bind =
@@ -77,16 +76,15 @@
                 "${mod},l,exchange_client, right"
               ];
 
-              resize.bind = [
-                "l,resizewin,+0, -50"
-                "j, resizewin, +0, +50"
-                "k, resizewin, -50, +0"
-                "l, resizewin, +50, + 0"
-              ];
+              # resize.bind = [
+              #   "l,resizewin,+0, -50"
+              #   "j, resizewin, +0, +50"
+              #   "k, resizewin, -50, +0"
+              #   "l, resizewin, +50, + 0"
+              # ];
 
             };
           };
       };
     };
-  };
 }

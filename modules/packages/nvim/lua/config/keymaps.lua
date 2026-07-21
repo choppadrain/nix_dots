@@ -21,3 +21,7 @@ end, { desc = "Find recent files" })
 map("n", "<leader>fg", function()
 	Snacks.picker.grep()
 end, { desc = "Grep text" })
+
+map("n", "<leader>fu", function()
+	Snacks.picker.undo()
+end, { desc = "Undo history" })

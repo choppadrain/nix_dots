@@ -15,6 +15,7 @@
         font = "SFMono Semi Bold Nerd";
         icons = true;
         text-color = "${scheme.base04}";
+        default-timeout = 3;
       };
     };
   };
