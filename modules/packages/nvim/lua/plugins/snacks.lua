@@ -18,6 +18,7 @@ return {
 				},
 			},
 			input = { enabled = true },
+
 			picker = {
 				enabled = true,
 				matcher = {
@@ -30,6 +31,20 @@ return {
 					cwd_bonus = true,
 					history_bonus = true,
 				},
+			},
+
+			statuscolumn = {
+				enabled = true,
+				left = { "sign", "fold" },
+				right = { "git", "fold" },
+
+				git = {
+					patterns = { "GitSign", "MiniDiffSign" },
+				},
+				refresh = 50,
+			},
+			words = {
+				enabled = true,
 			},
 		})
 	end,

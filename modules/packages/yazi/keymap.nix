@@ -50,7 +50,7 @@
 
                 {
                   on = "<S-s>";
-                  run = "plugin fuzzy-search --rg --TL=3";
+                  run = "plugin fuzzy-search -- rg --TL=3";
                   desc = "rg search";
                 }
 

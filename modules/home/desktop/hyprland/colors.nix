@@ -1,4 +1,5 @@
 { ... }: {
+
   flake.modules.homeManager.hyprland = { scheme, ... }: {
     wayland.windowManager.hyprland.extraLuaFiles."colors" = {
       autoLoad = true;

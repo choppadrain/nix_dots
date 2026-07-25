@@ -28,7 +28,7 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    #yazi stuff
+    #=======yazi stuff======
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";

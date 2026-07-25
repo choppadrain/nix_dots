@@ -1,14 +1,35 @@
 { self, inputs, ... }:
+
 {
   flake.modules.nixos.nvim =
     {
       wlib,
       pkgs,
+      lib,
+      config,
       ...
     }:
     {
 
       imports = [ wlib.wrapperModules.neovim ];
+
+      options = {
+        impure = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "if true, uses lua folder as usual vim, with no need to rebuild";
+        };
+
+        initLua = lib.mkOption {
+          type = wlib.types.stringable;
+          default = ./.;
+        };
+
+        impureInitLua = lib.mkOption {
+          type = lib.types.either wlib.types.stringable lib.types.luaInline;
+          default = lib.generators.mkLuaInline "vim.uv.os_homedir() .. '/mainconf/modules/packages/nvim'";
+        };
+      };
 
       config = {
         specs.general = with pkgs.vimPlugins; [
@@ -16,7 +37,6 @@
           snacks-nvim
           #completions
 
-          fzf-lua
           luasnip
 
           blink-cmp
@@ -53,7 +73,10 @@
           nixfmt
         ];
 
-        settings.config_directory = ./.;
+        settings.config_directory = if config.impure then config.impureInitLua else config.initLua;
+
+        settings.dont_link = true;
+        binName = lib.mkIf config.impure "nvimImpure";
 
         specs.initLua = {
           data = null;
@@ -62,6 +85,7 @@
             require('init')
           '';
         };
+
       };
     };
 
@@ -73,6 +97,12 @@
     {
       packages.neovim = inputs.wrappers.wrappers.neovim.wrap {
         imports = [ self.modules.nixos.nvim ];
+        inherit pkgs;
+      };
+
+      packages.neovimImpure = inputs.wrappers.wrappers.neovim.wrap {
+        imports = [ self.modules.nixos.nvim ];
+        impure = true;
         inherit pkgs;
       };
     };
