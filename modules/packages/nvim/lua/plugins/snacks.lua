@@ -46,6 +46,10 @@ return {
 			words = {
 				enabled = true,
 			},
+			scroll = {
+				enabled = true,
+				easing = "quad",
+			},
 		})
 	end,
 }

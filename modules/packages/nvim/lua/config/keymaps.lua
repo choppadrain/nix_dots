@@ -1,9 +1,17 @@
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlights" })
+map("n", "<leader><S-q>", "<cmd>q!<CR>", { desc = "quit" })
+
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 --to edit all occcunces of word
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
+
 -- fmt
 map("n", "<leader>cf", function()
 	require("conform").format()

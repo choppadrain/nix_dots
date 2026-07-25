@@ -40,7 +40,7 @@
           luasnip
 
           blink-cmp
-          blink-ripgrep-nvim
+          blink-ripgrep-nvim # currently unsused
           nvim-treesitter.withAllGrammars
           nvim-lspconfig
 
