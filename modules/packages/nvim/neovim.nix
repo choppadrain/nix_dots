@@ -38,6 +38,7 @@
           #completions
 
           luasnip
+          lualine-nvim
 
           blink-cmp
           blink-ripgrep-nvim # currently unsused
@@ -54,7 +55,6 @@
         specs.lazyPlugins = with pkgs.vimPlugins; [
           gitsigns-nvim
           nvim-autopairs
-          lualine-nvim
           nvim-web-devicons
 
         ];
