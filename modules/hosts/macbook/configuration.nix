@@ -5,7 +5,7 @@
   ...
 }:
 {
-  flake.darwinConfigurations.choppadrain = nix-darwin.lib.darwinSystem {
+  flake.darwinConfigurations.mabook = nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     modules =
       with self.modules.darwin;
@@ -29,7 +29,7 @@
       ];
 
   };
-  flake.modules.darwin.darwin = { pkgs, ... }: {
+  flake.modules.darwin.macbook = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       inputs.self.packages.${pkgs.system}.yazi
       inputs.self.packages.${pkgs.system}.zsh
