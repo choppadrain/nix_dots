@@ -17,6 +17,11 @@
           zoxide
           eza
         ];
+        zshenv.content = ''
+          export EDITOR='nvim'
+          export VISUAL='nvim'
+
+        '';
 
         zshrc.content = ''
           source ${pkgs.zinit}/share/zinit/zinit.zsh

@@ -1,43 +1,51 @@
 {
   self,
   inputs,
-  nix-darwin,
   ...
 }:
 {
-  flake.darwinConfigurations.mabook = nix-darwin.lib.darwinSystem {
-    system = "aarch64-darwin";
+  flake.darwinConfigurations.macbook = inputs.nix-darwin.lib.darwinSystem {
     modules =
       with self.modules.darwin;
       [
         macbook
+        hjem # wip
+        choppadrain
+        homeManager
+        base
       ]
       ++ [
         {
           home-manager.users.choppadrain = {
             imports = with self.modules.homeManager; [
-              starship
-              zsh
-              yazi
-              neovim
-              kitty
               tmux
-              utils
+              ghostty
             ];
+            home.stateVersion = "25.11";
           };
         }
       ];
 
   };
   flake.modules.darwin.macbook = { pkgs, ... }: {
+    system.primaryUser = "choppadrain";
     environment.systemPackages = with pkgs; [
       inputs.self.packages.${pkgs.system}.yazi
+      anki-bin
+      vesktop
       inputs.self.packages.${pkgs.system}.zsh
       inputs.self.packages.${pkgs.system}.starship
-
       inputs.self.packages.${pkgs.system}.neovim
       inputs.self.packages.${pkgs.system}.neovimImpure
+      prismlauncher
+      jdk25
     ];
-
+    system.configurationRevision = self.rev or self.dirtyRev or null;
+    nixpkgs.hostPlatform = "aarch64-darwin";
+    system.stateVersion = 6;
+    users.users.choppadrain = {
+      name = "choppadrain";
+      home = "/Users/choppadrain";
+    };
   };
 }

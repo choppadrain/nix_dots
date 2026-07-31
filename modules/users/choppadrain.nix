@@ -27,4 +27,13 @@ in
         home.homeDirectory = lib.mkDefault "home/${username}";
       };
     };
+
+  flake.modules.darwin."${username}" = {
+    home-manager.users."${username}" = {
+      home.username = "${username}";
+    };
+    hjem.users.${username} = {
+      user = "${username}";
+    };
+  };
 }

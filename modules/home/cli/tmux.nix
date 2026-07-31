@@ -1,14 +1,17 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
   flake.modules.nixos.tmux = {
     home-manager.sharedModules = [
       self.modules.homeManager.tmux
     ];
   };
-  flake.modules.homeManager.tmux = {
+  flake.modules.homeManager.tmux = { lib, pkgs, ... }: {
     programs.tmux = {
       enable = true;
       extraConfig = ''
+        set -g default-shell ${lib.getExe inputs.self.packages.${pkgs.system}.zsh}
+        set -g default-command ${lib.getExe inputs.self.packages.${pkgs.system}.zsh}
+
         set -g focus-events on
         set -s set-clipboard on
         set -g allow-passthrough on
