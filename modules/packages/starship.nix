@@ -27,7 +27,7 @@
 
           directory = {
             format = "[$path](style)";
-            truncation_length = 2;
+            truncation_length = 4;
             truncation_symbol = "../";
 
           };

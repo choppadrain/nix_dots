@@ -18,4 +18,13 @@
         '';
       };
     };
+  perSystem =
+    { pkgs, ... }:
+    {
+      packages.starship = inputs.wrappers.lib.wrapPackage {
+        inherit pkgs;
+        imports = [ self.modules.packages.tmux ];
+      };
+    };
+
 }
