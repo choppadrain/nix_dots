@@ -54,7 +54,7 @@
           #===============================================
           #aliases
           #===============================================
-
+          alias y="yazi"
           alias grep="rg --color=auto"
           alias cat="bat"
           alias ls="eza --icons"

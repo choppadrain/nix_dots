@@ -33,6 +33,7 @@
       inputs.self.packages.${pkgs.system}.yazi
       anki-bin
       vesktop
+      go
       inputs.self.packages.${pkgs.system}.zsh
       inputs.self.packages.${pkgs.system}.starship
       inputs.self.packages.${pkgs.system}.neovim

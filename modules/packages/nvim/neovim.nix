@@ -63,6 +63,7 @@
           #language servers
           lua-language-server
           gopls
+          go
 
           nixd
           tinymist

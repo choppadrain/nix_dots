@@ -17,7 +17,7 @@
         description = "init.lua contents";
       };
       config = {
-        package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        package = pkgs.yazi;
         runtimePkgs = with pkgs; [
           ripgrep
         ];
