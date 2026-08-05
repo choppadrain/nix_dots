@@ -18,7 +18,6 @@
         {
           home-manager.users.choppadrain = {
             imports = with self.modules.homeManager; [
-              tmux
               ghostty
             ];
             home.stateVersion = "25.11";
@@ -38,6 +37,9 @@
       inputs.self.packages.${pkgs.system}.starship
       inputs.self.packages.${pkgs.system}.neovim
       inputs.self.packages.${pkgs.system}.neovimImpure
+      inputs.self.packages.${pkgs.system}.ghostty
+      inputs.self.packages.${pkgs.system}.tmux
+      inputs.self.packages.${pkgs.system}.nh
       prismlauncher
       jdk25
     ];
