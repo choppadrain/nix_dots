@@ -15,7 +15,7 @@
       };
     };
   perSystem = { pkgs, ... }: {
-    packages.ghostty = inputs.wrappers.lib.wrapPackage {
+    packages.nh = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       imports = [ self.modules.packages.nh ];
     };

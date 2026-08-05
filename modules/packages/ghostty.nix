@@ -1,6 +1,5 @@
-{ inputs, ... }:
-let
-  ghosttyWrapped =
+{ inputs, self, ... }: {
+  flake.modules.packages.ghostty =
     {
       lib,
       pkgs,
@@ -48,15 +47,13 @@ let
           '';
       };
     };
-in
-{
 
   perSystem =
     { pkgs, ... }:
     {
       packages.ghostty = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ ghosttyWrapped ];
+        imports = [ self.modules.packages.ghostty ];
       };
     };
 }
