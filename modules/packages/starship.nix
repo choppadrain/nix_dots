@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.modules.homeManager.starship =
+  flake.modules.packages.starship =
     {
       wlib,
       ...
@@ -74,7 +74,7 @@
     {
       packages.starship = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.homeManager.starship ];
+        imports = [ self.modules.packages.starship ];
       };
     };
 }

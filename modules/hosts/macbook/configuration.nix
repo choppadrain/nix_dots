@@ -5,27 +5,14 @@
 }:
 {
   flake.darwinConfigurations.macbook = inputs.nix-darwin.lib.darwinSystem {
-    modules =
-      with self.modules.darwin;
-      [
-        macbook
-        hjem # wip
-        choppadrain
-        homeManager
-        base
-      ]
-      ++ [
-        {
-          home-manager.users.choppadrain = {
-            imports = with self.modules.homeManager; [
-              ghostty
-            ];
-            home.stateVersion = "25.11";
-          };
-        }
-      ];
-
+    modules = with self.modules.darwin; [
+      macbook
+      hjem # wip
+      choppadrain
+      base
+    ];
   };
+
   flake.modules.darwin.macbook = { pkgs, ... }: {
     system.primaryUser = "choppadrain";
     environment.systemPackages = with pkgs; [

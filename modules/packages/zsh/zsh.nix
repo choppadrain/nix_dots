@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.modules.homeManager.zsh =
+  flake.modules.packages.zsh =
     {
       wlib,
       pkgs,
@@ -111,7 +111,7 @@
     {
       packages.zsh = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.homeManager.zsh ];
+        imports = [ self.modules.packages.zsh ];
       };
     };
 

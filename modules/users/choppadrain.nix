@@ -29,9 +29,9 @@ in
     };
 
   flake.modules.darwin."${username}" = {
-    home-manager.users."${username}" = {
-      home.username = "${username}";
-    };
+    # home-manager.users."${username}" = {
+    #   home.username = "${username}";
+    # };
     hjem.users.${username} = {
       user = "${username}";
     };

@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.modules.homeManager.yazi =
+  flake.modules.packages.yazi =
     {
       lib,
       wlib,
@@ -63,7 +63,7 @@
     { pkgs, ... }:
     {
       packages.yazi = inputs.wrappers.wrappers.yazi.wrap {
-        imports = [ self.modules.homeManager.yazi ];
+        imports = [ self.modules.packages.yazi ];
         inherit pkgs;
       };
     };
