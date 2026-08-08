@@ -85,7 +85,7 @@ in
 
             hardware = lib.mkOption {
               type = lib.types.str;
-              default = throw "configuration failed: you must define a hardware for the host ";
+              default = "";
               description = "hardware profile of the system";
             };
 
