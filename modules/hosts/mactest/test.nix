@@ -1,11 +1,10 @@
 {
   config,
   self,
-  pkgs,
   ...
 }:
 {
-  macbookTest = {
+  osama.configurations.macbookTest = {
     user = "choppadrain";
     platform = "darwin";
     system = "aarch64-darwin";
@@ -15,7 +14,7 @@
       base
     ];
 
-    extraConfig = {
+    extraConfig = { pkgs, ... }: {
       system.primaryUser = "choppadrain";
       environment.systemPackages = with pkgs; [
         inputs.self.packages.${pkgs.system}.yazi

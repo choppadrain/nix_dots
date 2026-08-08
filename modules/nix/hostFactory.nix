@@ -17,10 +17,10 @@ in
         cfg.configurations
         |> lib.filterAttrs (_: hostConfig: hostConfig.platform == platform)
         |> lib.mapAttrs (
-          name: hostConfig:
+          hostname: hostConfig:
           withSystem hostConfig.system (
             {
-              hostname,
+              # hostname,
               inputs,
               ...
             }:
@@ -44,9 +44,10 @@ in
                   };
               };
               modules = hostConfig.modules ++ [
-                cfg.hardware.${hostConfig.user}
+                # cfg.hardware.${hostConfig.user}
                 cfg.skeleton
                 cfg.core
+                hostConfig.extraConfig
               ];
             }
           )
@@ -54,14 +55,14 @@ in
     in
     {
       flake.nixosConfigurations = mkSystem "nixos" inputs.nixpkgs.lib.nixosSystem;
-      flake.darwinConfigurations = mkSystem "darwin" inputs.nix-darwin.darwinSystem;
+      flake.darwinConfigurations = mkSystem "darwin" inputs.nix-darwin.lib.darwinSystem;
     };
 
   options.osama = {
     configurations = lib.mkOption {
       description = "nix configurations";
       default = { };
-      type = lib.types.attrsof (
+      type = lib.types.attrsOf (
         lib.types.submodule {
           options = {
             platform = lib.mkOption {
@@ -78,7 +79,7 @@ in
             };
 
             modules = lib.mkOption {
-              type = lib.types.listof lib.types.deferredmodule;
+              type = lib.types.listOf lib.types.deferredModule;
               default = [ ];
               description = "additional modules";
             };
@@ -89,10 +90,10 @@ in
               description = "hardware profile of the system";
             };
 
-            users = lib.mkOption {
-              type = lib.types.listof lib.types.deferredmodule;
+            user = lib.mkOption {
+              type = lib.types.str;
               default = throw "configuration failed: you must define a user ";
-              descriptions = "defining a users";
+              description = "defining a users";
             };
 
             theme = lib.mkOption {
@@ -101,7 +102,7 @@ in
             };
 
             extraConfig = lib.mkOption {
-              type = lib.types.deferredmodule;
+              type = lib.types.deferredModule;
               default = { };
               description = "configuration specific things";
             };
@@ -117,19 +118,19 @@ in
     };
 
     mods = lib.mkOption {
-      type = lib.types.lazyattrsof lib.types.deferredmodule;
+      type = lib.types.lazyAttrsOf lib.types.deferredModule;
     };
     host = lib.mkOption {
-      type = lib.types.lazyattrsof lib.types.deferredmodule;
+      type = lib.types.lazyAttrsOf lib.types.deferredModule;
     };
     core = lib.mkOption {
-      type = lib.types.deferredmodule;
+      type = lib.types.deferredModule;
     };
     skeleton = lib.mkOption {
-      type = lib.types.deferredmodule;
+      type = lib.types.deferredModule;
     };
     hardware = lib.mkOption {
-      type = lib.types.lazyattrsof lib.types.deferredmodule;
+      type = lib.types.lazyAttrsOf lib.types.deferredModule;
     };
 
   };
