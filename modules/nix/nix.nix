@@ -10,6 +10,7 @@ let
         experimental-features = [
           "flakes"
           "nix-command"
+          "pipe-operators"
         ];
       };
     };
