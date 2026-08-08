@@ -13,7 +13,7 @@
   perSystem =
     { pkgs, ... }:
     {
-      formatter = pkgs.nixfmt-tree;
+      formatter = pkgs.nixfmt-rs;
     };
 
 }
