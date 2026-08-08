@@ -20,7 +20,6 @@ in
           hostname: hostConfig:
           withSystem hostConfig.system (
             {
-              # hostname,
               inputs,
               ...
             }:
@@ -45,8 +44,8 @@ in
               };
               modules = hostConfig.modules ++ [
                 # cfg.hardware.${hostConfig.user}
-                cfg.skeleton
-                cfg.core
+                # cfg.skeleton
+                # cfg.core
                 hostConfig.extraConfig
               ];
             }
@@ -106,6 +105,7 @@ in
               default = { };
               description = "configuration specific things";
             };
+
             stateVersion = lib.mkOption {
               type = lib.types.str;
               default = throw "configuration failed: specify systemState version";
