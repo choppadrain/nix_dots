@@ -43,7 +43,8 @@ in
                   };
               };
               modules = hostConfig.modules ++ [
-                # cfg.hardware.${hostConfig.user}
+                #since nix darwin does not require hardware module i am importing something like darwin module
+                (if platform == "darwin" then cfg.darwinModule else cfg.hardware.${hostConfig.user})
                 # cfg.skeleton
                 # cfg.core
                 hostConfig.extraConfig
@@ -55,6 +56,15 @@ in
     {
       flake.nixosConfigurations = mkSystem "nixos" inputs.nixpkgs.lib.nixosSystem;
       flake.darwinConfigurations = mkSystem "darwin" inputs.nix-darwin.lib.darwinSystem;
+
+      darwinModule = { self, constants, ... }: {
+        nixpkgs.hostPlatform = "aarch64-darwin";
+        system.configurationRevision = self.rev or self.dirtyRev or null;
+        users.users."${constants.hostConfig.user}" = {
+          name = "${constants.hostConfig.user}";
+          home = "${constants.homePath}";
+        };
+      };
     };
 
   options.osama = {
