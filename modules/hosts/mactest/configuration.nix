@@ -4,7 +4,7 @@
   ...
 }:
 {
-  osama.configurations.macbookTest = {
+  osama.configurations.macbook = {
     user = "choppadrain";
     platform = "darwin";
     system = "aarch64-darwin";
