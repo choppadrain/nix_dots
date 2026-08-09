@@ -2,6 +2,7 @@
   withSystem,
   config,
   lib,
+  inputs,
   self,
   ...
 }:
@@ -12,48 +13,41 @@ in
 
   config =
     let
-      mkDarwin =
+      mkSystem =
+        platform: builder:
         cfg.configurations
+        |> lib.filterAttrs (_: hostConfig: hostConfig.platform == platform)
         |> lib.mapAttrs (
           hostname: hostConfig:
           withSystem hostConfig.system (
-            { inputs, ... }:
-            inputs.nix-darwin.lib.darwinSystem {
+            {
+              inputs,
+              ...
+            }:
+            builder {
               specialArgs = {
-                inherit hostname inputs;
-                inherit (hostConfig) theme;
-                constants = {
-                  username = hostConfig.user;
-                  stateVersion = hostConfig.stateVersion;
-                  homeDir = "/Users/${hostConfig.user}";
-                };
-              };
-              modules = hostConfig.modules ++ [
-                cfg.mods.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
-                hostConfig.extraConfig
-              ];
-            }
-          )
-        );
-
-      mkNixos =
-        cfg.configurations
-        |> lib.mapAttrs (
-          hostname: hostConfig:
-          withSystem hostConfig.system (
-            { inputs, ... }:
-            inputs.nixpkgs.lib.nixosSystem {
-              specialArgs = {
-                inherit hostname inputs;
+                inherit
+                  hostname
+                  inputs
+                  ;
                 inherit (hostConfig) hardware theme;
-                constants = {
-                  username = hostConfig.user;
-                  stateVersion = hostConfig.stateVersion;
-                  homeDir = "/home/${hostConfig.user}";
-                };
+                constants =
+                  let
+                    homePath = (
+                      if platform == "darwin" then "/Users/${hostConfig.user}" else "/home/${hostConfig.user}"
+                    );
+                  in
+                  {
+                    username = hostConfig.user;
+                    stateVersion = hostConfig.stateVersion;
+                    homeDir = homePath;
+                  };
               };
               modules = hostConfig.modules ++ [
-                cfg.hardware.${hostConfig.user}
+                #since nix darwin does not require hardware module i am importing something like darwin module
+                (if platform == "darwin" then cfg.mods.darwinModule else cfg.hardware.${hostConfig.user})
+                # cfg.skeleton
+                # cfg.core
                 hostConfig.extraConfig
               ];
             }
@@ -61,8 +55,8 @@ in
         );
     in
     {
-      flake.nixosConfigurations = mkNixos;
-      flake.darwinConfigurations = mkDarwin;
+      flake.nixosConfigurations = mkSystem "nixos" inputs.nixpkgs.lib.nixosSystem;
+      flake.darwinConfigurations = mkSystem "darwin" inputs.nix-darwin.lib.darwinSystem;
 
       osama.mods.darwinModule = { constants, ... }: {
         nixpkgs.hostPlatform = "aarch64-darwin";
@@ -71,8 +65,7 @@ in
           name = "${constants.username}";
           home = "${constants.homePath}";
         };
-        system.primaryUser = "${constants.username}";
-        system.stateVersion = constants.stateVersion; # todo: move this to a nix settings file
+        system.stateVersion = constants.stateVersion;
       };
     };
 
