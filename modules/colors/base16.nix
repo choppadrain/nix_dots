@@ -9,7 +9,7 @@
     }:
     {
       imports = [ inputs.base16.nixosModule ]; # nixos module which is not actually nixos module
-      options.theme = {
+      options.themes = {
         variant = lib.mkOption {
           type = lib.types.enum [
             "vague"

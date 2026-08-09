@@ -1,5 +1,5 @@
-{ inputs, self, ... }: {
-  flake.modules.packages.ghostty =
+{ inputs, config, ... }: {
+  osama.modules.ghostty =
     {
       lib,
       pkgs,
@@ -53,7 +53,7 @@
     {
       packages.ghostty = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.packages.ghostty ];
+        imports = [ config.osama.modules.ghostty ];
       };
     };
 }

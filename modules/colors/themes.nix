@@ -1,8 +1,8 @@
 { inputs, ... }:
 {
-  osama.core = { config, ... }: {
+  osama.common = { config, ... }: {
     themes = {
-      dark = {
+      vague = {
         slug = "vague";
         scheme = "Vague";
         author = "mollypostmark";
@@ -40,7 +40,7 @@
         base17 = "#c9b1ca"; # Bright magenta
       };
 
-      light = {
+      yoru = {
       };
     };
 
