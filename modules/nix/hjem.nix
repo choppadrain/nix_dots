@@ -9,18 +9,16 @@
     {
       constants,
       lib,
-      pkgs,
       ...
     }:
     {
       imports = [
         (
-          if pkgs.stdenv.isDarwin then
-            "inputs.hjem.darwinModules.default"
+          if constants.platform == "darwin" then
+            inputs.hjem.darwinModules.default
           else
-            "inputs.hjem.nixosModules.default"
+            inputs.hjem.nixosModules.default
         )
-        inputs.hjem.nixosModules.default
         (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" constants.username ])
       ];
 

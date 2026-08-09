@@ -24,6 +24,7 @@ in
                 inherit hostname inputs;
                 inherit (hostConfig) theme;
                 constants = {
+                  platform = hostConfig.platform;
                   username = hostConfig.user;
                   stateVersion = hostConfig.stateVersion;
                   homeDir = "/Users/${hostConfig.user}";
