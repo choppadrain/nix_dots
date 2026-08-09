@@ -1,26 +1,38 @@
-#WIP
 {
   inputs,
   ...
 }:
-let
-  hjemConfig = { ... }: {
-  };
-in
+
 {
-  flake.modules.nixos.hjem = {
-    imports = [
-      inputs.hjem.nixosModules.default
-      hjemConfig
-    ];
 
-  };
-  flake.modules.darwin.hjem = {
-    imports = [
-      inputs.hjem.darwinModules.default
-      hjemConfig
-    ];
+  osama.core =
+    {
+      constants,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [
+        (
+          if pkgs.stdenv.isDarwin then
+            "inputs.hjem.darwinModules.default"
+          else
+            "inputs.hjem.nixosModules.default"
+        )
+        inputs.hjem.nixosModules.default
+        (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" constants.username ])
+      ];
 
-  };
+      hjem.clobberByDefault = true;
 
+      hj = {
+        enable = true;
+
+        user = constants.username;
+        directory = constants.homedir;
+
+      };
+
+    };
 }

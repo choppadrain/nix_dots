@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 let
-  cliUtils = { pkgs, ... }: {
+  cliUtils = { ... }: {
 
     environment.systemPackages = with pkgs; [
       fzf
@@ -25,10 +25,7 @@ let
   };
 in
 {
-  flake.modules.nixos.base = { pkgs, ... }: {
-    imports = [ cliUtils ];
-  };
-  flake.modules.darwin.base = { pkgs, ... }: {
+  osama.modules.core = { pkgs, ... }: {
     imports = [ cliUtils ];
   };
 }

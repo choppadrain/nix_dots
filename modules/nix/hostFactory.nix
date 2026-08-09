@@ -30,7 +30,7 @@ in
                 };
               };
               modules = hostConfig.modules ++ [
-                cfg.mods.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
+                cfg.modules.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
                 hostConfig.extraConfig
                 cfg.core
               ];
@@ -57,6 +57,7 @@ in
               modules = hostConfig.modules ++ [
                 cfg.hardware.${hostConfig.user}
                 hostConfig.extraConfig
+                cfg.core
               ];
             }
           )
@@ -66,7 +67,7 @@ in
       flake.nixosConfigurations = mkNixos;
       flake.darwinConfigurations = mkDarwin;
 
-      osama.mods.darwinModule = { constants, ... }: {
+      osama.modules.darwinModule = { constants, ... }: {
         nixpkgs.hostPlatform = "aarch64-darwin";
         system.configurationRevision = self.rev or self.dirtyRev or null;
         users.users."${constants.username}" = {
@@ -139,31 +140,8 @@ in
     };
 
     modules = lib.mkOption {
-      description = "modules with support of platform specific settings";
       default = { };
-      type = lib.types.lazyAttrsOf (
-        lib.types.submodule {
-          options = {
-            common = lib.mkOption {
-              type = lib.types.deferredModule;
-              default = { };
-              description = "Common configuration for both platforms";
-            };
-
-            nixos = lib.mkOption {
-              type = lib.types.deferredModule;
-              default = { };
-              description = "NixOS specific configuration";
-            };
-
-            darwin = lib.mkOption {
-              type = lib.types.deferredModule;
-              default = { };
-              description = "macOS specific configuration";
-            };
-          };
-        }
-      );
+      type = lib.types.lazyAttrsOf lib.types.deferredModule;
 
     };
     host = lib.mkOption {

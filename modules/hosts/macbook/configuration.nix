@@ -12,7 +12,7 @@
     stateVersion = 6;
     # theme = "dark";
     modules = with self.modules.darwin; [
-      base
+      # base
     ];
 
     extraConfig = { pkgs, ... }: {
