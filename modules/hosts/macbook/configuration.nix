@@ -32,13 +32,6 @@
         prismlauncher
         jdk25
       ];
-      # nixpkgs.hostPlatform = "aarch64-darwin";
-      # system.configurationRevision = self.rev or self.dirtyRev or null;
-      # users.users.choppadrain = {
-      #   name = "choppadrain";
-      #   home = "/Users/choppadrain";
-      # };
-      # system.stateVersion = 6;
     };
   };
 }

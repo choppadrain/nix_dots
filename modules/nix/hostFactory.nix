@@ -3,6 +3,7 @@
   config,
   lib,
   self,
+  inputs,
   ...
 }:
 let
@@ -17,7 +18,7 @@ in
         |> lib.mapAttrs (
           hostname: hostConfig:
           withSystem hostConfig.system (
-            { inputs, ... }:
+            { ... }:
             inputs.nix-darwin.lib.darwinSystem {
               specialArgs = {
                 inherit hostname inputs;
@@ -31,6 +32,7 @@ in
               modules = hostConfig.modules ++ [
                 cfg.mods.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
                 hostConfig.extraConfig
+                cfg.core
               ];
             }
           )
@@ -136,8 +138,33 @@ in
       );
     };
 
-    mods = lib.mkOption {
-      type = lib.types.lazyAttrsOf lib.types.deferredModule;
+    modules = lib.mkOption {
+      description = "modules with support of platform specific settings";
+      default = { };
+      type = lib.types.lazyAttrsOf (
+        lib.types.submodule {
+          options = {
+            common = lib.mkOption {
+              type = lib.types.deferredModule;
+              default = { };
+              description = "Common configuration for both platforms";
+            };
+
+            nixos = lib.mkOption {
+              type = lib.types.deferredModule;
+              default = { };
+              description = "NixOS specific configuration";
+            };
+
+            darwin = lib.mkOption {
+              type = lib.types.deferredModule;
+              default = { };
+              description = "macOS specific configuration";
+            };
+          };
+        }
+      );
+
     };
     host = lib.mkOption {
       type = lib.types.lazyAttrsOf lib.types.deferredModule;

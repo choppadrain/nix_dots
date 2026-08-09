@@ -17,10 +17,7 @@ let
   };
 in
 {
-  flake.modules.nixos.base = {
-    imports = [ nixpkgsCommon ];
-  };
-  flake.modules.darwin.base = {
+  osama.core = {
     imports = [ nixpkgsCommon ];
   };
 }
