@@ -35,7 +35,7 @@ in
                 cfg.modules.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
                 hostConfig.extraConfig
                 cfg.common
-                cfg.backend
+                # cfg.backend
               ];
             }
           )

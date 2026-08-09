@@ -9,18 +9,18 @@ let
       ripgrep
       fd
       p7zip-rar
-      ncdu
-      iftop
+      # ncdu
+      # iftop
       btop
       fastfetch
       zoxide
       unzip
 
-      mpv
-      ffmpeg
-      jq
-      resvg
-      poppler
+      # mpv
+      # ffmpeg
+      # jq
+      # resvg
+      # poppler
     ];
   };
 in

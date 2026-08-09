@@ -17,7 +17,7 @@ let
   };
 in
 {
-  osama.core = {
+  osama.common = {
     imports = [ nixpkgsCommon ];
   };
 }

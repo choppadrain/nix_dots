@@ -1,9 +1,10 @@
 { inputs, ... }: {
-  osama.backend =
+  osama.common =
     {
       lib,
       theme,
       config,
+      constants,
       ...
     }:
     {
@@ -30,16 +31,11 @@
           description = "yoru theme ";
         };
       };
-      config =
-        let
-          scheme = config.theme.${theme};
-        in
-        {
-          inherit scheme;
-
-          _module.args = {
-            inherit (config) scheme;
-          };
+      config = {
+        scheme = config.scheme."${constants.theme}";
+        _module.args = {
+          inherit (config) scheme;
         };
+      };
     };
 }
