@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 let
-  cliUtils = { ... }: {
+  cliUtils = { pkgs, ... }: {
 
     environment.systemPackages = with pkgs; [
       fzf
@@ -25,7 +25,7 @@ let
   };
 in
 {
-  osama.modules.core = { pkgs, ... }: {
+  osama.modules.terminal = { ... }: {
     imports = [ cliUtils ];
   };
 }

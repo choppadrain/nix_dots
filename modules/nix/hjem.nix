@@ -5,7 +5,7 @@
 
 {
 
-  osama.core =
+  osama.common =
     {
       constants,
       lib,

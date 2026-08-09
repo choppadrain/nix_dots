@@ -13,6 +13,7 @@
       stateVersion = 6;
       # theme = "dark";
       modules = with config.osama.modules; [
+        terminal
       ];
 
       extraConfig = { pkgs, ... }: {

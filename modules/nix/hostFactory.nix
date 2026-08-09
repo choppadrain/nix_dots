@@ -24,6 +24,7 @@ in
                 inherit hostname inputs;
                 inherit (hostConfig) theme;
                 constants = {
+                  theme = hostConfig.theme;
                   platform = hostConfig.platform;
                   username = hostConfig.user;
                   stateVersion = hostConfig.stateVersion;
@@ -33,7 +34,8 @@ in
               modules = hostConfig.modules ++ [
                 cfg.modules.darwinModule # since there is no hardware for macos in nix, i am defining a module with macos only settings
                 hostConfig.extraConfig
-                cfg.core
+                cfg.common
+                cfg.backend
               ];
             }
           )
@@ -50,6 +52,7 @@ in
                 inherit hostname inputs;
                 inherit (hostConfig) hardware theme;
                 constants = {
+                  platform = hostConfig.platform;
                   username = hostConfig.user;
                   stateVersion = hostConfig.stateVersion;
                   homeDir = "/home/${hostConfig.user}";
@@ -58,7 +61,8 @@ in
               modules = hostConfig.modules ++ [
                 cfg.hardware.${hostConfig.user}
                 hostConfig.extraConfig
-                cfg.core
+                cfg.common
+                cfg.backend
               ];
             }
           )
@@ -120,6 +124,8 @@ in
 
             theme = lib.mkOption {
               type = lib.types.enum [
+                "vague"
+                "yoru"
               ];
             };
 
@@ -148,10 +154,10 @@ in
     host = lib.mkOption {
       type = lib.types.lazyAttrsOf lib.types.deferredModule;
     };
-    core = lib.mkOption {
+    common = lib.mkOption {
       type = lib.types.deferredModule;
     };
-    skeleton = lib.mkOption {
+    backend = lib.mkOption {
       type = lib.types.deferredModule;
     };
     hardware = lib.mkOption {
