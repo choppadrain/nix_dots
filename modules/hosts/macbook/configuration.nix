@@ -32,6 +32,7 @@
           inputs.self.packages.${pkgs.system}.nh
           prismlauncher
           jdk25
+          aerospace
         ];
       };
     };

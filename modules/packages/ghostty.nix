@@ -4,7 +4,6 @@
       lib,
       pkgs,
       wlib,
-      scheme,
       config,
       ...
     }:
@@ -27,7 +26,6 @@
 
         };
         settings = ''
-            test = ${scheme.base00}
           theme = vague
           font-family = SF Mono
           font-size = 15
