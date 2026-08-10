@@ -13,7 +13,7 @@
       # theme = "dark";
       modules = with config.osama.modules; [
         terminal
-        desktop
+        # desktop
       ];
 
       extraConfig = { pkgs, ... }: {
