@@ -1,6 +1,6 @@
-{ inputs, self, ... }:
+{ inputs, config, ... }:
 {
-  flake.modules.packages.yazi =
+  osama.modules.yazi =
     {
       lib,
       wlib,
@@ -63,7 +63,7 @@
     { pkgs, ... }:
     {
       packages.yazi = inputs.wrappers.wrappers.yazi.wrap {
-        imports = [ self.modules.packages.yazi ];
+        imports = [ config.osama.modules.yazi ];
         inherit pkgs;
       };
     };

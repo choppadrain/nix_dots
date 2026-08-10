@@ -1,7 +1,7 @@
-{ self, inputs, ... }:
+{ config, inputs, ... }:
 
 {
-  flake.modules.nixos.nvim =
+  osama.modules.nvim =
     {
       wlib,
       pkgs,
@@ -27,7 +27,7 @@
 
         impureInitLua = lib.mkOption {
           type = lib.types.either wlib.types.stringable lib.types.luaInline;
-          default = lib.generators.mkLuaInline "vim.uv.os_homedir() .. '/mainconf/modules/packages/nvim'";
+          default = lib.generators.mkLuaInline "vim.uv.os_homedir() .. '/mainconf/osama.modules/packages/nvim'";
         };
       };
 
@@ -97,12 +97,12 @@
     }:
     {
       packages.neovim = inputs.wrappers.wrappers.neovim.wrap {
-        imports = [ self.modules.nixos.nvim ];
+        imports = [ config.osama.modules.nvim ];
         inherit pkgs;
       };
 
       packages.neovimImpure = inputs.wrappers.wrappers.neovim.wrap {
-        imports = [ self.modules.nixos.nvim ];
+        imports = [ config.osama.modules.nvim ];
         impure = true;
         inherit pkgs;
       };

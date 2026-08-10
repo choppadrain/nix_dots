@@ -1,6 +1,6 @@
-{ inputs, self, ... }:
+{ inputs, config, ... }:
 {
-  flake.modules.packages.zsh =
+  osama.modules.zsh =
     {
       wlib,
       pkgs,
@@ -111,7 +111,7 @@
     {
       packages.zsh = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.packages.zsh ];
+        imports = [ config.osama.modules.zsh ];
       };
     };
 

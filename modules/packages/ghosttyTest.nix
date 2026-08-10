@@ -3,12 +3,11 @@
     {
       lib,
       pkgs,
-      wlib,
       config,
       ...
     }:
     {
-      imports = [ wlib.modules.default ];
+      # imports = [ wlib.modules.default ];
       options.settings = lib.mkOption {
         type = lib.types.lines;
         default = " ";
@@ -48,7 +47,7 @@
       };
     };
 
-  perSystem =
+  osama.modules.terminal =
     { pkgs, ... }:
     {
       packages.ghostty = inputs.wrappers.lib.wrapPackage {

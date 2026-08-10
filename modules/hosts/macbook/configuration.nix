@@ -1,6 +1,5 @@
 {
   config,
-  self,
   inputs,
   ...
 }:
@@ -17,7 +16,7 @@
       ];
 
       extraConfig = { pkgs, ... }: {
-        system.primaryUser = "choppadrain";
+        # system.primaryUser = "choppadrain";
         environment.systemPackages = with pkgs; [
           inputs.self.packages.${pkgs.system}.yazi
           anki-bin

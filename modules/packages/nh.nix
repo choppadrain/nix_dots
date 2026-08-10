@@ -1,23 +1,20 @@
-{ inputs, self, ... }: {
-  flake.modules.packages.nh =
+{ inputs, config, ... }: {
+  osama.modules.nh =
     {
-      pkgs,
-      lib,
+      constants,
       wlib,
       ...
     }:
     {
       imports = [ wlib.wrapperModules.nh ];
       config = {
-        flake = lib.mkDefault (
-          if pkgs.stdenv.isDarwin then "/Users/choppadrain/nix_dots" else "/home/choppadrain/nix_dots"
-        );
+        flake = "${constants.homeDir}/nix_dots";
       };
     };
   perSystem = { pkgs, ... }: {
     packages.nh = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
-      imports = [ self.modules.packages.nh ];
+      imports = [ config.osama.modules.nh ];
     };
   };
 }

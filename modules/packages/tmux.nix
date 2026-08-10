@@ -1,9 +1,8 @@
-{ self, inputs, ... }: {
-  flake.modules.packages.tmux =
+{ config, inputs, ... }: {
+  osama.modules.tmux =
     {
       pkgs,
       wlib,
-      config,
       lib,
       ...
     }:
@@ -44,7 +43,7 @@
     {
       packages.tmux = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.packages.tmux ];
+        imports = [ config.osama.modules.tmux ];
       };
     };
 

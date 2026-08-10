@@ -1,6 +1,6 @@
 { scheme, ... }:
 {
-  flake.modules.packages.yazi =
+  osama.modules.yazi =
     { ... }:
     {
       config.settings.theme = {

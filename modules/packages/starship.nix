@@ -1,10 +1,10 @@
 {
   inputs,
-  self,
+  config,
   ...
 }:
 {
-  flake.modules.packages.starship =
+  osama.modules.starship =
     {
       wlib,
       ...
@@ -74,7 +74,7 @@
     {
       packages.starship = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
-        imports = [ self.modules.packages.starship ];
+        imports = [ config.osama.modules.starship ];
       };
     };
 }

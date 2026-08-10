@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.packages.yazi =
+  osama.modules.yazi =
     {
       ...
     }:
