@@ -1,14 +1,17 @@
 { inputs, config, ... }: {
   osama.modules.nh =
     {
-      constants,
+      pkgs,
+      lib,
       wlib,
       ...
     }:
     {
       imports = [ wlib.wrapperModules.nh ];
       config = {
-        flake = "${constants.homeDir}/nix_dots";
+        flake = lib.mkDefault (
+          if pkgs.stdenv.isDarwin then "/Users/choppadrain/nix_dots" else "/home/choppadrain/nix_dots"
+        );
       };
     };
   perSystem = { pkgs, ... }: {

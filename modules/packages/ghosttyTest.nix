@@ -1,4 +1,10 @@
-{ inputs, config, ... }: {
+{
+  inputs,
+  config,
+  constants,
+  ...
+}:
+{
   osama.modules.ghostty =
     {
       lib,
@@ -47,12 +53,14 @@
       };
     };
 
-  osama.modules.terminal =
+  osama.modules.desktop =
     { pkgs, ... }:
     {
-      packages.ghostty = inputs.wrappers.lib.wrapPackage {
-        inherit pkgs;
-        imports = [ config.osama.modules.ghostty ];
-      };
+      hj.packages = [
+        (inputs.wrappers.lib.wrapPackage {
+          inherit pkgs;
+          imports = [ config.osama.modules.ghostty ];
+        })
+      ];
     };
 }
