@@ -34,6 +34,7 @@
           jdk25
           rift-wm
           qbittorrent
+          orion-browser
         ];
       };
     };
