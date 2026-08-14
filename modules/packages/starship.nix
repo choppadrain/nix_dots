@@ -54,7 +54,7 @@
             format = "[ $time ]($style)";
             style = "white bold";
             time_format = "%T";
-            utc_time_offset = "-3";
+            utc_time_offset = "+3";
           };
 
           nix_shell = {
