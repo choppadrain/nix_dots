@@ -1,3 +1,4 @@
+#this one can be considered abandoned since im not using my computer too much after ive got a macbook
 {
   inputs,
   self,
