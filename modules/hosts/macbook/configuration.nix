@@ -17,7 +17,6 @@
       ];
 
       extraConfig = { pkgs, ... }: {
-        # system.primaryUser = "choppadrain";
         environment.systemPackages = with pkgs; [
           inputs.self.packages.${pkgs.system}.yazi
           anki-bin
@@ -30,10 +29,10 @@
           inputs.self.packages.${pkgs.system}.ghostty
           inputs.self.packages.${pkgs.system}.tmux
           inputs.self.packages.${pkgs.system}.nh
-          prismlauncher
           jdk25
-          rift-wm
           qbittorrent
+          element-desktop
+          gh
           orion-browser
         ];
       };

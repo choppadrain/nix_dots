@@ -28,7 +28,7 @@
         enable = true;
 
         user = constants.username;
-        directory = constants.homedir;
+        directory = constants.homeDir;
 
       };
 

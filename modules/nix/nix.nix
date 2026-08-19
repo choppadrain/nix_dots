@@ -1,6 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 let
   nixpkgsCommon = { pkgs, ... }: {
+    nixpkgs.overlays = [ inputs.nix-orion.overlays.default ];
     nixpkgs.config.allowUnfree = true;
     nix = {
       package = pkgs.nix;
